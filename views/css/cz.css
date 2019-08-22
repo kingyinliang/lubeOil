@@ -1,0 +1,71 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #fff !important;
+}
+/*详情*/
+.xq{
+	margin-top: 70px;
+}
+.xq>p{
+	margin-top: 15px;
+	margin-left: 5%;
+}
+.xq ul{
+	width: 100%;
+	padding: 0 10%;
+}
+.xq li{
+	width: 30%;
+	list-style: none;
+	float: left;
+	text-align: center;
+	margin-right: 5%;
+	border: 1px solid #EC6859;
+	border-radius: 8px;
+	background-color: #fff;
+}
+.xq li:nth-child(3n){
+	margin: 0;
+}
+.select a p{
+	text-decoration:none;
+	color: #EC6859;
+	border-radius:2px;
+	margin-bottom: 5px;
+	font-size: 0.8rem;	
+}
+.select .selected{
+	background-color: #EC6859;
+}
+.select .selected a p{
+	color:#fff;
+}
+.fd a>p:nth-child(1){
+	margin-bottom: 0;
+	margin-top: 5px;
+}
+.submit{
+	width: 90%;
+	height: 40px;
+	margin-top: 60px;
+	margin-left: 5%;
+	border-radius: 10px!important;
+	font-size: 1rem!important;
+	background-color: #EC6859!important;
+	border: none!important;
+}
+.confirm{
+	width: 90%;
+	height: 40px;
+	margin: 60px auto 0;
+	border-radius: 8px;
+	font-size: 1rem;
+	color: #fff;
+	background-color: #EC6859;
+	text-align: center;
+	line-height: 40px;
+}

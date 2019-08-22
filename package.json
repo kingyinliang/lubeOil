@@ -1,0 +1,19 @@
+{
+  "name": "lubeoil",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+//    "predev": "start http://192.168.43.226:3000/home.html",
+    "predev": "start http://localhost:3000/home.html",
+    "dev": "./node_modules/.bin/nodemon www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-static": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
+  }
+}

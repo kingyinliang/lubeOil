@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>订单详情</title>
+<script type="text/javascript" src="publick/js/responsive.js"></script>
+<link rel="stylesheet" type="text/css" href="publick/css/mui.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/qrdd.css">-->
+<link rel="stylesheet" type="text/css" href="css/style.css?v=1.1">
+</head>
+<style type="text/css">
+	.mui-content{
+		background: #F9F9F9;
+		padding-bottom: 0.98rem;
+	}
+</style>
+<body>
+    <!-- 导航栏 -->
+    <header class="mui-bar header idxHeader">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title head-title">订单详情</h1>
+	</header>
+	<div id="vmObj" class="mui-content" v-cloak>
+    	<div class="orderAds">
+    		<img src="images/orderAds.png"/>
+    		<div>
+    			<p><span>收货人：{{orderInfos.consignee}}</span><span>电话：{{orderInfos.mobile}}</span></p>
+    			<div class="adsName">
+    				{{orderInfos.province_text}}-{{orderInfos.city_text}}-{{orderInfos.area_text}} {{orderInfos.address}}
+    			</div>
+    		</div>
+    	</div>
+    	<div class="servMa" v-if="orderInfos.status==7">
+    		<p>服务代销码</p>
+    		<p>{{orderInfos.order_sn}}</p>
+    	</div>
+    	<div class="orderInfo">
+	    	<div class="storeDiv orderTop">
+	    		<span class="mui-pull-right" v-if="orderInfos.status==0">待付款</span>
+				<span class="mui-pull-right" v-else-if="orderInfos.status==1">待发货</span>
+				<span class="mui-pull-right" v-else-if="orderInfos.status==2">待收货</span>
+				<span class="mui-pull-right" v-else-if="orderInfos.status==3">待评价</span>
+				<span class="mui-pull-right" v-else-if="orderInfos.status==4">完成交易</span>
+				<span class="mui-pull-right" v-else-if="orderInfos.status==5">订单取消</span>
+				<span class="mui-pull-right" v-else-if="orderInfos.status==6">退款退货</span>
+				<span class="mui-pull-right" v-else-if="orderInfos.status==7">待服务</span>
+				<span class="mui-pull-right" v-else-if="orderInfos.status==8">待服务确认</span>
+	    		<img src="images/store.png"/>
+	    		<s v-if="orderInfos.send_type==1">邮寄店铺：{{orderInfos.shop_name}}</s>
+	    		<s v-else>自提店铺：{{orderInfos.shop_name}}</s>
+	    	</div>
+	    	<div class="colCont orderGood">
+				<div class="carBan">
+					<img :src="orderInfos.order_goods[0].goods_img">
+				</div>
+				<div class="colCar">
+					<p class="mui-ellipsis p1">{{orderInfos.order_goods[0].goods_name}}</p>
+					<p class="p2">型号/规格：{{orderInfos.order_goods[0].spec1_info}}；{{orderInfos.order_goods[0].spec2_info}}</p>
+					<p class="p3">¥{{orderInfos.goods_amount}}<span>x{{orderInfos.order_goods[0].num}}</span></p>
+				</div>
+			</div>
+			<div class="orderPhone">商品数量：<span>{{orderInfos.order_goods[0].num}}件</span></div>
+			<div class="orderPhone" v-if="orderInfos.service_price">服务：<span>￥{{orderInfos.service_price}}</span></div>
+			<div class="orderPhone" v-if="orderInfos.peijian_price">配件：<span>￥{{orderInfos.peijian_price}}</span></div>
+			<div class="orderPhone" v-if="orderInfos.send_type==1">配送方式：<span>邮寄</span></div>
+			<div class="orderPhone" v-else>配送方式：<span>自提</span></div>
+			<div class="orderPhone">运     费：<span>￥{{orderInfos.delivery_fee}}</span></div>
+			<div class="orderPhone">优 惠 券：<span>-￥{{orderInfos.coupon_money}}</span></div>
+			<div class="orderPhone">订单时间：<span>{{orderInfos.ordertime}}</span></div>
+			<div class="orderPhone">单     号：<span>{{orderInfos.order_sn}}</span></div>
+			<div class="orderPhone">总计<span>￥{{orderInfos.order_amount}}</span></div>
+		</div>
+    	<div class="cfmBot orderBot" v-if="orderInfos.status==0">
+    		<div class="cancelBtn" @tap="cancelOrder">取消订单</div>
+    		<div class="cfmBtn" @tap="payment">确认付款</div>
+    	</div>
+    	<!--<div class="cfmBot orderBot" v-else-if="orderInfos.status==1">-->
+    		<!--<div class="cfmBtn evalInfo" @tap="refund">申请退款</div>-->
+    	<!--</div>-->
+    	<div class="cfmBot orderBot" v-else-if="orderInfos.status==2">
+    		<div class="cancelBtn" @tap="checkLogis">查看物流</div>
+    		<div class="cfmBtn" @tap="cfmGood">确认收货</div>
+    	</div>
+    	<div class="cfmBot orderBot" v-else-if="orderInfos.status==3">
+    		<div class="cfmBtn evalInfo" @tap="evaluate">立即评价</div>
+    	</div>
+		<div class="cfmBot orderBot" v-else-if="orderInfos.status==8">
+			<div class="cfmBtn evalInfo" @tap="cfmService">确认服务</div>
+		</div>
+    </div>
+<!-- js插件 -->
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="publick/js/jquery-3.1.0.min.js"></script>
+<script src="publick/js/vue.min.js"></script>
+<script src="publick/js/mui.js"></script>
+<script src="js/common.js"></script>
+<script src="js/orderInfo.js?v=1.0"></script>
+<script type="text/javascript">
+	mui.init();
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>核销记录</title>
+		<script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<!--<link href="css/iconfont.css" rel="stylesheet" />-->
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+		<style type="text/css">
+			.mui-content{
+				background: none;
+			}
+			#pullrefresh{
+				top:3.08rem;
+			}
+		</style>
+	<body>
+		<header class="mui-bar header idxHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title head-title">核销记录</h1>
+		</header>
+		<div class="mui-content" id="vmObj" v-cloak>
+			<div class="boundTab">
+		        <ul class="clearfix">
+					<li class="active" @tap="checkCop">洗车券</li>
+					<li @tap="checkServ">服务</li>
+				</ul>
+		  	</div>
+		    <div id="pullrefresh" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="boundList clearfix">
+						<li v-for="(boundList,index) in boundLists">
+							<span>{{boundList.code}}</span>
+							<div class="boundR">
+								<p>已核销</p>
+								<p>{{boundList.creatTime}}</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+	    <script src="publick/js/mui.min.js"></script>
+	    <script src="js/common.js"></script>
+    	<script src="js/boundRcd.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title>搜索页</title>
+	    <script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+	<style type="text/css">
+		.mui-search .mui-placeholder .mui-icon{
+			color: #fff;
+		}
+		#pullrefresh{
+			top:0.9rem;
+			overflow: visible;
+			position: absolute;
+		}
+		.isSerch{
+			display: none;
+		}
+		.idxSearch:before{
+			color: #fff !important;
+			top:50% !important;
+		}
+	</style>
+	<body>
+		<div id="vmObj" v-cloak>
+		<header class="mui-bar header idxHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <div class="mui-input-row mui-search idxSearch"><!-- :class="{mui-active:isSer==1}"-->
+			    <input type="search" placeholder="请输入搜索内容" v-model="serCont" @focus="isInput" >
+			</div>
+			<a class="mui-icon mui-pull-right headTxt" @tap="serBtn">搜索</a>
+		</header>
+		<div class="mui-content container">
+			<div class="serCont" v-if="isSerch==0">
+				<p class="serTip">热门搜索</p>
+				<ul class="serList clearfix">
+					<li v-for="(hotList,index) in hotLists" @tap="hotSerch(index)">{{hotList}}</li>
+				</ul>
+			</div>
+			<div class="serCont" v-if="isSerch==0">
+				<img class="delImg" src="images/delIcon.png" @tap="delHistory"/>
+				<p class="serTip">搜索历史</p>
+				<ul class="serList clearfix">
+					<li v-for="(historyList,index) in historyLists" @tap="histSerch(index)">{{historyList}}</li>
+				</ul>
+			</div>
+			<div class="serCont_s isSerch">
+				<div class="filterDiv">
+					<ul class="filteTab">
+						<li class="active" @tap="all">综合</li>
+						<li @tap="sale">销量</li>
+						<li @tap="filter">筛选<img src="images/filtIcon.png" alt="" /></li>
+					</ul>
+					<ul class="tabCont">
+						<li class="active" @tap="selAll">综合<img src="images/selcIcon.png" alt="" /></li>
+						<li @tap="price_desc">价格降序<img src="images/selcIcon.png" alt="" /></li>
+						<li @tap="price_asc">价格升序<img src="images/selcIcon.png" alt="" /></li>
+					</ul>
+					<div class="typeCont">
+						<p>品牌</p>
+						<ul class="brand clearfix">
+							<li class="active">不限</li>
+							<li v-for="(bList,index) in bLists" @tap="selBrand(index)">{{bList.name}}</li>
+						</ul>
+						<p>品类</p>
+						<ul class="cType clearfix">
+							<li class="active">不限</li>
+							<li v-for="(cList,index) in cLists" @tap="selType(index)">{{cList.name}}</li>
+						</ul>
+						<div class="botBtn">
+							<div class="reset" @tap="reset">重置</div>
+							<div class="confirm" @tap="confirm">确定</div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="pullrefresh" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="goodsList clearfix">
+							<li v-for="(goodsList,index) in goodsLists" @tap="toInfo(index)">
+								<img :src="goodsList.goods_img" v-if="goodsList.goods_img">
+								<img src="images/logo.png" v-else>
+								<div class='rcmDesc'>
+									<p class="mui-ellipsis p1">{{goodsList.goods_name}}</p>
+									<p class="p2">型号/规格：5W-40/4L</p>
+									<p class="p3">￥{{goodsList.price}}</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="serchNone" v-if="isSerch==2">
+				<img src="images/unserch.png"/>查询不到相关信息，换个词试试吧~
+			</div>
+		</div>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+		<script src="publick/js/mui.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/serch.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+</html>

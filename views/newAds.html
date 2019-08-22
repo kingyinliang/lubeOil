@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>新建收货地址页</title>
+		<script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<link href="publick/css/mui.picker.min.css" rel="stylesheet" />
+		<link href="publick/css/mui.poppicker.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header class="mui-bar header regHeader newHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title head-title">新建收货地址</h1>
+		</header>
+		<div class="mui-content container" id="vmObj">
+			<form class="mui-input-group formCont newCont">
+				<div class="mui-input-row formList">
+					<span class="logLabel">收货人</span>
+			        <input type="text" placeholder="请填写收货人姓名" v-model="takerName">
+			    </div>
+			    <div class="mui-input-row formList">
+			    	<span class="logLabel">联系方式</span>
+			    	<input type="tel" placeholder="请填写收货人手机号" v-model="phoneNum" @blur="telBl" maxlength="11">
+			    </div>
+			    <div class="mui-input-row formList" @tap="getArea">
+			        <span class="logLabel">所在地区</span>
+	        		<input type="text" placeholder="省市区县等" v-model="adsArea" />
+	        		<span class="mui-navigate-right arrowRoate" style="font-size: 0.44rem;"></span>
+			    </div>
+			    <div class="mui-input-row formList">
+			    	<span class="logLabel">详细地址</span>
+			        <textarea placeholder="街道、楼牌号等" v-model="adsDetail"></textarea>
+			    </div>
+			</form>
+			<div class="addBtn" @tap="saveAds">保存</div>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+	    <script src="publick/js/mui.min.js"></script>
+	    <script src="publick/js/mui.picker.js"></script>
+		<script src="publick/js/mui.picker.min.js"></script>
+		<script src="publick/js/mui.poppicker.js"></script>
+	    <script src="js/common.js"></script>
+    	<script src="js/newAds.js?v=1.2"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

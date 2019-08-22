@@ -1,0 +1,161 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #F4F4F4 !important;
+}
+/*导航栏*/
+header{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background-color: #fff;
+	text-align: center;
+   	position: fixed;
+   	top: 0;
+   	z-index: 5;
+}
+header>ul{
+	text-align: center;
+}
+header a{
+	margin-left: 15px;
+    width: 25px;
+    float: left;
+    
+    z-index: 50;
+}
+header img{
+	margin-top: 11px;
+	width: 15px;
+}
+header span{
+	line-height: 50px;
+	color: #2b2b2b;
+	font-size: 1.2rem;
+	margin-left: -35px;
+}
+/*订单详情*/
+.ddxq{
+	margin-top: 50px;
+}
+.dd{
+	width: 100%;
+	background-color: #fff;
+}
+.dd>a{
+	display:block;
+}
+.dd>a>div>span{
+	font-size: 1rem;
+	margin-left: 5%;
+	color: #2b2b2b;
+}
+.dd>a>div>span:nth-child(2){
+	float: right;
+	margin-right: 5%;
+	color: red;
+}
+.dd>a>div>img{
+	width: 30%;
+	height: auto;
+	margin-left: 5%;
+	margin-top: 10px;
+	float: left;
+}
+.dd>a>div{
+	position: relative;
+	/*top: 5px;*/
+	/*display: flex;
+	flex-direction: row;
+	justify-content: space-between;*/
+}
+.dd>a>div>div{
+	float: right;
+	width: 55%;
+	margin-top: 10px;
+	/*margin-left: 40%;*/
+	/*position: absolute;
+    top: 8px;*/
+}
+.dd>a>div>div>p{
+	color: #2b2b2b;
+	font-size: 1rem;
+}
+.dd>a>div>div>span{
+	font-size: 0.9rem;
+	color: #A0A0A0;
+	position: relative;
+	/*top: 25px;*/
+}
+.dd>a>div>div>span:nth-child(4){
+	float: right;
+	margin-right: 5%;
+}
+.dd>div>p{
+	margin-right: 5%;
+	color: #505050;
+}
+.dd>a>div>p>span{
+	color: red;
+}
+.dd>div button{
+	margin-right: 5%;
+	text-align: right;
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+.dd>div .tcNum{
+	display: inline-block;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	padding: 6px 12px;
+	font-size: 14px;
+	color: red;
+}
+hr{
+	background-color: #e8e8e8;
+    height: 1px !important;
+    border: none;
+}
+.payWay{
+	display: none;
+	width: 100%;
+	position: fixed !important;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+}
+.mui-table-view:before,.mui-table-view-cell:after{
+    background-color: none!important;
+}
+.mui-table-view-radio .mui-table-view-cell .mui-navigate-right:after {
+    color: #e62011!important;
+}
+.mui-navigate-right>img{
+	width: 20px;
+	vertical-align: middle;
+}
+.mui-navigate-right>span{
+	color: #656565;
+	font-size: 0.9rem;
+}
+.orderMa{
+	display: none;
+	width: 80%;
+	height: 50px;
+	background: #fff;
+	padding: 10px 30px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 1000;
+	margin-top: -25px;
+	margin-left: -40%;
+	font-size: 14px;
+	color:#333;
+	line-height: 30px;
+	text-align: center;
+}

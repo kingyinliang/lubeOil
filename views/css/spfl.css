@@ -1,0 +1,101 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #fff !important;
+}
+/*商品列表*/
+#lib_Tab1_sx{
+	margin:0px;
+	padding:0px;
+	overflow:hidden;
+}
+.lib_tabborder_sx{
+	margin-top: 50px!important;
+}
+.lib_Menubox_sx {
+	line-height:28px;
+	position:relative; 
+	float:left; 
+	width:28%; 
+	height: 603px;
+	background-color: #f0f0f0;
+}
+.lib_Menubox_sx ul{
+	margin:0px;
+	padding:0px;
+	list-style:none; 
+	font-size: 1rem;
+	margin-left:5%;
+	margin-right: 5%;
+	text-align:center;
+}
+.lib_Menubox_sx li{
+	cursor:pointer;
+	width:80%;
+	color:#808080; 
+	margin-bottom:5px;
+	/*height:25px;*/
+	max-height: 50px;
+	line-height:25px; 
+	font-size: 1rem;
+	margin-top: 24px;
+	margin-left: 5%;
+}
+.lib_Menubox_sx li:nth-last-child(1){
+	margin-bottom:300px;
+}
+.lib_Menubox_sx li.hover{
+	background:#296ECA;
+	width:80%;
+	border-right:0;
+	color:#fff;
+	/*height:25px;*/
+	max-height: 50px;
+	line-height:25px;
+	border-radius: 12px;
+	font-size: 1rem;
+	margin-top: 18px;
+	margin-left: 5%;
+}
+.lib_Contentbox_sx{
+	margin-top: 0px;
+    border-top: none;
+    padding: 20px 0 0;
+    border-left: 0;
+    margin-left: 28%;
+    width: 72%!important;
+    height: 603px;
+    overflow: auto;
+    position: relative;
+}
+/*商品详情*/
+.mui-col-xs-6>a>img:nth-child(1){
+	/*width: 70%;*/
+	/*margin-left: 15%;*/
+}
+.mui-content {
+     background-color: #fff!important; 
+}
+.mui-col-xs-6>a>p{
+	text-align: center;
+    font-size: 1rem;
+    margin: 15px auto;
+}
+.cpList:nth-child(2n){
+	border-right: none;
+}
+.cpList a{
+	display: block;
+	/*height: 122px;*/
+	overflow: hidden;
+	margin: 0 5px;
+}
+.cpList a img{
+	display: block;
+	height: 76px;
+	width: 76px;
+	margin: 0 auto;
+}

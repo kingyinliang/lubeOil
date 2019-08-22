@@ -1,0 +1,65 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #fff !important;
+}
+/*导航栏*/
+header{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background-color: #fff;
+   	position: fixed;
+   	top: 0;
+   	z-index: 5;
+}
+header>ul{
+	text-align: center;
+}
+header span{
+	line-height: 50px;
+	color: #2b2b2b;
+	font-size: 1.2rem;
+}
+/*详情*/
+.xq>div{
+	text-align: center;
+}
+.xq>div>img{
+	margin-top: 150px;
+	width: 20%;
+}
+.xq>div>span{
+	font-size: 1rem;
+	color: #9F9F9F;
+	position: relative;
+	top: 15px;
+}
+.xq>div>a>button{
+	font-size: 1rem;
+	position: relative;
+	top: 30px;
+}
+.xq>div>a:nth-child(2)>button{
+	margin-left: 15%;
+	border: 1px solid red;
+	color: red;
+}
+.txm{
+	position: relative;
+	top: 50px;
+	border: 1px solid #66C15E;
+	width: 60%;
+	margin-left: 20%;
+	border-radius: 35px;
+	padding: 5px 10px;
+}
+.txm>p{
+	margin-bottom: 0;
+	color: #66C15E;
+	font-size: 1rem;
+}

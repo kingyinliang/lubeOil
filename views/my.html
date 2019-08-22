@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>个人中心</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script src="publick/js/responsive.js"></script>
+<!-- css插件 -->
+<link rel="stylesheet" type="text/css" href="publick/css/mui.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<style type="text/css">
+	.mui-content{
+		padding-top: 0;
+		padding-bottom: 1rem;
+	}
+	.copyright{
+		width: 100%;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		text-align: center;
+		font-size: 0.28rem;
+		color:#333;
+		background: rgb(242,242,242);
+	}
+</style>
+<body>
+	<div class="mui-content container" id="vmObj" v-cloak>
+		<div class="headCont" @tap="toMyinfo">
+			<img src="images/headImg.png" alt="" v-if="!userInfors.avatar" />
+			<img :src="userInfors.avatar" alt="" v-else />
+			<div class="headInfo">
+				<span>{{userInfors.user_nickname}}</span>
+				<span>{{userInfors.mobile}}</span>
+			</div>
+		</div>
+		<ul class="mui-table-view myList">
+		    <li class="mui-table-view-cell mui-media" @tap="toOrder">
+		    	<span class="oSpan">我的订单</span><span class="cSpan">查看全部订单</span>
+		        <span class="mui-navigate-right"></span>
+		    </li>
+		</ul>
+		<ul class="myMoney">
+			<li @tap="payOrder"><img src="images/my_pay.png"/>待付款<sup v-if="orderNum.num>0">{{orderNum.num}}</sup></li>
+			<li @tap="sendOrder"><img src="images/my_deliver.png"/>待发货<sup v-if="orderNum.num1>0">{{orderNum.num1}}</sup></li>
+			<li @tap="getOrder"><img src="images/my_get.png"/>待收货<sup v-if="orderNum.num2>0">{{orderNum.num2}}</sup></li>
+			<li @tap="servOrder"><img src="images/my_serv.png"/>待服务<sup v-if="orderNum.num7>0">{{orderNum.num7}}</sup></li>
+			<li @tap="evalOrder"><img src="images/my_eval.png"/>待评价<sup v-if="orderNum.num3>0">{{orderNum.num3}}</sup></li>
+			<li @tap="refundOrder"><img src="images/my_back.png"/>退货/退款<sup v-if="orderNum.num6>0">{{orderNum.num6}}</sup></li>
+		</ul>
+		<ul class="mui-table-view myList">
+		    <li class="mui-table-view-cell mui-media" @tap="toAds">
+		    	<img src="images/myGeo.png"/>收货地址
+		        <span class="mui-navigate-right"></span>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" @tap="toRmd">
+		    	<img src="images/myWithdraw.png"/>提现
+		        <span class="mui-navigate-right"></span>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" @tap="toCoupons">
+		    	<img src="images/myCoupon.png"/>优惠券
+		        <span class="mui-navigate-right"></span>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" @tap="toShare">
+		    	<img src="images/myMa.png"/>我的二维码
+		        <span class="mui-navigate-right"></span>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" @tap="toCollect">
+		    	<img src="images/myCol.png"/>我的收藏
+		        <span class="mui-navigate-right"></span>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" @tap="toProfile">
+		    	<img src="images/myProfit.png"/>分润明细
+		        <span class="mui-navigate-right"></span>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" @tap="toPursell" v-if="userInfors.user_type==3||userInfors.user_type==4">
+		    	<img src="images/myCun.png"/>进销存
+		        <span class="mui-navigate-right"></span>
+		    </li>
+		</ul>
+	</div>
+	<nav class="mui-bar mui-bar-tab footer">
+	    <a class="mui-tab-item" href="home.html">
+	        <img class="a1" src="images/nav_home.png" alt="" />
+	        <span class="mui-tab-label">首页</span>
+	    </a>
+	    <a class="mui-tab-item" href="shopCart.html">
+	        <img class="a2" src="images/nav_shop.png" alt="" />
+	        <span class="mui-tab-label">购物车</span>
+	    </a>
+	    <a class="mui-tab-item mui-active" href="my.html">
+	        <img class="a3" src="images/nav_myed.png" alt="" />
+	        <span class="mui-tab-label">我的</span>
+	    </a>
+	</nav>
+<!-- js插件 -->
+<script type="text/javascript" src="publick/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="publick/js/vue.min.js"></script>
+<script type="text/javascript" src="publick/js/mui.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/my.js?v=1.3"></script>
+</body>
+
+</html>

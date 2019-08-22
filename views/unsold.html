@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>滞销</title>
+		<script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<!--<link href="css/iconfont.css" rel="stylesheet" />-->
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+		<style type="text/css">
+			.mui-content{
+				background: none;
+			}
+			#pullrefresh{
+				top:0.88rem;
+			}
+		</style>
+	<body>
+		<header class="mui-bar mui-bar-nav whiteHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">滞销</h1>
+		</header>
+		<div class="mui-content" id="vmObj" v-cloak>
+			<div class="outTop">
+		        <span>{{selCont}}个月未出库</span>
+		        <select name="" v-model="selCont" @change="selType">
+					<option value="1">1个月</option>
+					<option value="2">2个月</option>
+					<option value="3">3个月</option>
+					<option value="4">4个月</option>
+					<option value="5">5个月</option>
+					<option value="6">6个月</option>
+					<option value="7">7个月</option>
+					<option value="8">8个月</option>
+					<option value="9">9个月</option>
+					<option value="10">10个月</option>
+					<option value="11">11个月</option>
+					<option value="12">12个月</option>
+				</select>
+				<img src="images/jiantou.png" class="arrowDown"/>
+		   </div>
+		    <div class="serCont_s">
+			    <div id="pullrefresh" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="goodsList clearfix">
+							<li v-for="(unsoldList,index) in unsoldLists" @tap="editBound(index)">
+								<img :src="unsoldList.goods_img" v-if="unsoldList.goods_img">
+								<img src="images/logo.png" v-else>
+								<div class='rcmDesc'>
+									<p class="mui-ellipsis p1">{{unsoldList.goods_name}}</p>
+									<p class="p2">型号/规格：{{unsoldList.spec}}/{{unsoldList.spec}}</p>
+									<p class="p3">￥{{unsoldList.cost_price}}</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+		    </div>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+	    <script src="publick/js/mui.min.js"></script>
+	    <script src="js/common.js"></script>
+    	<script src="js/unsold.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

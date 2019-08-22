@@ -1,0 +1,54 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #fff !important;
+}
+.actBanner{
+	width: 100%;
+	height:3rem;
+	overflow: hidden;
+}
+.actBanner img{
+	height: 3rem;
+}
+/*商品展示*/
+.spzs>a{
+	display: block;
+	margin-top: 0.2rem;
+}
+.spzs>a>div{
+	width: 100%;
+	/*height: 100px;*/
+}
+.spzs>a>div>img{
+	width: 135px;
+	/*float: left;*/
+	margin-left: 4%;
+	vertical-align: middle;
+}
+.spzs>a>div>div{
+	display: inline-block;
+	/*float: left;*/
+	width: 48%;
+	margin-left: 2%;
+	vertical-align: middle;
+}
+.spzs>a>div>div>p{
+	color: #333;
+	font-size: 0.28rem;
+}
+.spzs>a>div>div>s{
+	color: #888;
+	font-size: 0.24rem;
+    position: relative;
+    /*top: 25px;*/
+}
+.spzs>a>div>div>span{
+	color: red;
+	font-size: 0.28rem;
+    position: relative;
+    /*top: 30px;*/
+}

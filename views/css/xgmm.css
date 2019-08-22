@@ -1,0 +1,91 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #fff !important;
+}
+/*信息*/
+/*.xx{
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 80px;
+}*/
+/*.xx>div{
+	width: 80%;
+	margin-left: 10%;
+}*/
+/*.xx>input{
+	border: none !important;
+	border-bottom: 1px solid #DBCECE !important;
+	font-size: 1rem;
+	color: #333;
+	-webkit-text-fill-color:#333;
+	-webkit-opacity:1;
+	opacity: 1;
+}
+.xx>span{
+	color: red;
+    font-size: 1rem !important;
+    position: relative;
+    top: -155px;
+    float: right;
+    padding-left: 32px;
+    line-height: 20px;
+}
+.xx>button{
+	width: 30%;
+	margin-left: 35%;
+	font-size: 1rem;
+	background: #ff0000;
+}*/
+.formCont:before,.formCont:after{
+	display: none;
+}
+.formCont{
+	/*height:12.46rem;*/
+	padding:0.1rem 0.68rem 0;
+}
+.formCont .formList{
+	height: auto;
+	padding:0.44rem 0;
+}
+.formCont .formList:after{
+	left: 0;
+	background: #DBCECE;
+}
+.formList label,.formList input{
+	height: auto;
+	padding: 0;
+	font-size: 0.28rem;
+	color:#666;
+	line-height: 0.28rem;
+}
+.checkCode{
+	width:1.8rem;
+	height:0.74rem;
+	text-align: center;
+	line-height: 0.74rem;
+	font-size: 0.24rem;
+	color:#fff;
+	background: #e51d23;
+	border-radius: 4px;
+	position: absolute;
+	top:50%;
+	right: 0;
+	margin-top: -0.37rem;
+}
+.regBtn{
+	width:2.38rem;
+	height:0.88rem;
+	text-align: center;
+	line-height: 0.88rem;
+	font-size: 0.32rem;
+	color:#fff;
+	background: #ff0000;
+	border-radius: 4px;
+	padding: 0;
+	border: none;
+	margin: 1rem auto 0;
+}

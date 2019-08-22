@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>编辑客户资料</title>
+    <script src="publick/js/responsive.js"></script>
+    <link href="publick/css/mui.min.css" rel="stylesheet"/>
+    <link href="publick/css/mui.picker.min.css" rel="stylesheet" />
+	<link href="publick/css/mui.poppicker.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+	.mui-content{
+		background: none;
+	}
+</style>
+<body>
+	<div id="vmObj" v-cloak>
+	<header class="mui-bar mui-bar-nav whiteHeader">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">编辑客户资料</h1>
+	    <a class="mui-icon mui-pull-right headTxt" @tap="saveUser">保存</a>
+	</header>
+	<div class="mui-content userList">
+        <ul class="withDlist inList">
+        	<li class="mui-table-view-cell">
+        		<span>姓      名</span>
+        		<input type="text" placeholder="请输入姓名" v-model="userName" />
+        	</li>
+        	<li class="mui-table-view-cell">
+        		<span>联系电话</span>
+        		<input type="text" placeholder="请输入客户联系电话" v-model="userPhone" />
+        	</li>
+        </ul>
+        <p class="addTip">请输入详细地址</p>
+        <ul class="withDlist inList">
+        	<li class="mui-table-view-cell" @tap="getArea">
+        		<input type="text" placeholder="请选择所在地区" readonly v-model="adsName" />
+        		<span class="mui-navigate-right arrowRoate" style="font-size: 0.44rem;"></span>
+        	</li>
+        	<li class="mui-table-view-cell litext">
+        		<textarea placeholder="请输入详细地址" v-model="detAds"></textarea>
+        	</li>
+        </ul>
+        <p class="addTip">备注</p>
+        <ul class="withDlist inList">
+        	<li class="mui-table-view-cell" @tap="selType">
+        		<input type="text" placeholder="请选择类别" readonly v-model="markType" />
+        		<span class="mui-navigate-right arrowRoate" style="font-size: 0.44rem;"></span>
+        	</li>
+        	<li class="mui-table-view-cell litext">
+        		<textarea type="number" placeholder="请填写备注" v-model="markCont"></textarea>
+        	</li>
+        </ul>
+	</div>
+	</div>
+	<script src="publick/js/jquery-3.1.0.min.js"></script>
+	<script src="publick/js/vue.min.js"></script>
+    <script src="publick/js/mui.min.js"></script>
+    <script src="publick/js/mui.picker.min.js"></script>
+	<script src="publick/js/mui.poppicker.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/editUser.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</body>
+</html>

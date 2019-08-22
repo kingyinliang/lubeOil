@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title>物流信息页</title>
+	    <script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+	<style type="text/css">
+		.idxHeader a.mui-icon{
+			color: #333;
+		}
+	</style>
+	<body>
+		<header class="mui-bar idxHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">物流信息</h1>
+		</header>
+		<div class="mui-content container" id="vmObj" v-cloak>
+			<div class="colCont logisCont">
+				<div class="carBan">
+					<img :src="logisticInfos.logo" alt="" />
+				</div>
+				<div class="colCar">
+					<p class="p1">物流公司: {{logisticInfos.expName}}</p>
+					<p class="p2">订单编号: {{logisticInfos.number}}</p>
+					<p class="p3">物流电话: {{logisticInfos.expPhone}}</p>
+				</div>
+			</div>
+			<ul class="logisList">
+				<li v-for="(postWay,index) in logisticInfos.list">
+					<div class="logMark"></div>
+					<div class="logInfo">
+						<p>{{postWay.status}}</p>
+						<p>{{postWay.time}}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+		<script src="publick/js/mui.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/logistic_o.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+</html>

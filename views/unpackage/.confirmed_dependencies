@@ -1,0 +1,306 @@
+{
+  "shop.html": {
+    "refer": [
+      "xshd.html",
+      "spxq.html",
+      "news.html",
+      "grzx.html",
+      "ssy.html",
+      "cplist.html"
+    ],
+    "resources": []
+  },
+  "xshd.html": {
+    "refer": [
+      "spxq.html",
+      "shop.html"
+    ],
+    "resources": []
+  },
+  "spxq.html": {
+    "refer": [
+      "xshd.html",
+      "user.html",
+      "qrdd.html",
+      "shop.html",
+      "cplist.html"
+    ],
+    "resources": []
+  },
+  "user.html": {
+    "refer": [
+      "spxq.html"
+    ],
+    "resources": []
+  },
+  "qrdd.html": {
+    "refer": [
+      "spxq.html",
+      "login.html",
+      "contacter.html"
+    ],
+    "resources": []
+  },
+  "zcnews.html": {
+    "refer": [
+      "news.html"
+    ],
+    "resources": []
+  },
+  "news.html": {
+    "refer": [
+      "zcnews.html",
+      "shop.html",
+      "jynews.html",
+      "srnews.html",
+      "xtnews.html",
+      "newsList.html"
+    ],
+    "resources": []
+  },
+  "grzx.html": {
+    "refer": [
+      "cz.html",
+      "dfk.html",
+      "dsy.html",
+      "dpj.html",
+      "team.html",
+      "lszd.html",
+      "fxjl.html",
+      "yqm.html",
+      "sm.html",
+      "news.html",
+      "grxx.html",
+      "login.html",
+      "userInfo.html",
+      "shop.html",
+      "yyfw.html",
+      "ljzc.html"
+    ],
+    "resources": []
+  },
+  "cz.html": {
+    "refer": [
+      "login.html",
+      "grzx.html"
+    ],
+    "resources": []
+  },
+  "login.html": {
+    "refer": [
+      "shop.html",
+      "ljzc.html",
+      "index.html"
+    ],
+    "resources": []
+  },
+  "dsy.html": {
+    "refer": [
+      "grzx.html"
+    ],
+    "resources": []
+  },
+  "dfk.html": {
+    "refer": [
+      "grzx.html",
+      "ddxq.html",
+      "login.html"
+    ],
+    "resources": []
+  },
+  "dpj.html": {
+    "refer": [
+      "grzx.html"
+    ],
+    "resources": []
+  },
+  "team.html": {
+    "refer": [
+      "grzx.html"
+    ],
+    "resources": []
+  },
+  "lszd.html": {
+    "refer": [
+      "grzx.html"
+    ],
+    "resources": []
+  },
+  "fxjl.html": {
+    "refer": [
+      "grzx.html"
+    ],
+    "resources": []
+  },
+  "sm.html": {
+    "refer": [
+      "grzx.html"
+    ],
+    "resources": []
+  },
+  "yqm.html": {
+    "refer": [
+      "grzx.html"
+    ],
+    "resources": []
+  },
+  "jynews.html": {
+    "refer": [
+      "news.html"
+    ],
+    "resources": []
+  },
+  "srnews.html": {
+    "refer": [
+      "news.html"
+    ],
+    "resources": []
+  },
+  "ssy.html": {
+    "refer": [
+      "ssList.html"
+    ],
+    "resources": []
+  },
+  "grxx.html": {
+    "refer": [
+      "grxx.html",
+      "grzx.html",
+      "login.html"
+    ],
+    "resources": []
+  },
+  "newsList.html": {
+    "refer": [
+      "newsCont.html"
+    ],
+    "resources": []
+  },
+  "cplist.html": {
+    "refer": [
+      "spxq.html",
+      "shop.html"
+    ],
+    "resources": []
+  },
+  "userInfo.html": {
+    "refer": [
+      "grzx.html",
+      "xgmm.html",
+      "login.html"
+    ],
+    "resources": []
+  },
+  "xgmm.html": {
+    "refer": [
+      "grzx.html",
+      "userInfo.html"
+    ],
+    "resources": []
+  },
+  "contacter.html": {
+    "refer": [
+      "addContact.html",
+      "spxq.html"
+    ],
+    "resources": []
+  },
+  "addContact.html": {
+    "refer": [
+      "contacter.html"
+    ],
+    "resources": []
+  },
+  "yyfw.html": {
+    "refer": [
+      "grzx.html",
+      "yylist.html",
+      "yyxx.html"
+    ],
+    "resources": []
+  },
+  "yylist.html": {
+    "refer": [
+      "yyfw.html",
+      "yyxq.html"
+    ],
+    "resources": []
+  },
+  "yyxx.html": {
+    "refer": [
+      "yy.html",
+      "yyfw.html"
+    ],
+    "resources": []
+  },
+  "yy.html": {
+    "refer": [
+      "yyxx.html",
+      "yyfw.html"
+    ],
+    "resources": []
+  },
+  "yyxq.html": {
+    "refer": [
+      "yylist.html"
+    ],
+    "resources": []
+  },
+  "index.html": {
+    "resources": [
+      "css/style.css"
+    ],
+    "refer": [
+      "my.html",
+      "search.html"
+    ]
+  },
+  "my.html": {
+    "refer": [
+      "login.html",
+      "myInfo.html",
+      "index.html",
+      "myCol.html",
+      "myOrder.html",
+      "pursellSave.html"
+    ]
+  },
+  "myInfo.html": {
+    "refer": [
+      "index.html",
+      "my.html"
+    ]
+  },
+  "myCol.html": {
+    "refer": [
+      "goodsInfo.html"
+    ]
+  },
+  "search.html": {
+    "refer": [
+      "goodsInfo.html"
+    ]
+  },
+  "myOrder.html": {
+    "refer": [
+      "evalOrder.html",
+      "orderInfo.html"
+    ]
+  },
+  "pursellSave.html": {
+    "refer": [
+      "inbound.html",
+      "editBound.html",
+      "userManage.html",
+      "inventory.html",
+      "unsold.html",
+      "outBound.html"
+    ]
+  },
+  "userManage.html": {
+    "refer": [
+      "addUser.html",
+      "editUser.html"
+    ]
+  }
+}

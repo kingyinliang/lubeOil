@@ -1,0 +1,385 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #fff !important;
+}
+/*详情 */
+.banslide{
+	height: 5.32rem !important;
+	overflow: hidden;
+}
+/*#slider img{
+	height: 5rem !important;
+}*/
+.xq>div:nth-child(1){
+	width: 94%;
+	margin-top: 14px;
+	margin-left: 3%;
+}
+.xq>div:nth-child(1)>p{
+	color: #696969;
+	font-size: 0.28rem;
+	margin-top: 14px;
+	margin-bottom: 19px;
+}
+.xq>div:nth-child(1)>#yuanjia{
+	color: #A0A0A0;
+	font-size: 0.24rem;
+}
+.xq>div:nth-child(1)>span{
+	color: red;
+	font-size: 0.3rem;
+	margin-left: 0;
+}
+.xq>div:nth-child(1)>div>span{
+	font-size: 0.24rem;
+	color: #A0A0A0;
+}
+.xq>div:nth-child(1)>div{
+	margin-bottom: 5px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+/*.xq>div:nth-child(1)>div>span:nth-child(3),
+.xq>div:nth-child(1)>div>span:nth-child(4){
+	float: right;
+}*/
+hr{
+	background-color: #f0f0f0;
+    height: 10px !important;
+    border: none;
+}
+#choose,.choose{
+	width: 94%;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 3%;
+}
+#choose>span,.choose>span,.choose>span{
+	color: #3E3E3E;
+	font-size: 0.28rem;
+}
+#choose>img,.choose>img,.choose>img{
+	float: right;
+	width: 10px;
+	margin-top: 12px;
+}
+.choose>div>div>img{
+	width: 100%;
+}
+.infoCont .infoTab{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	height: 0.98rem;
+	line-height: 0.98rem;
+}
+.infoCont .infoTab span{
+	font-size: 0.28rem;
+	color: #333;
+}
+.infoCont .infoTab span.active{
+	color: #CC0505;
+}
+.content{
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 60px;
+}
+.content img{
+	width: 100%;
+}
+/*固定在底部*/
+.navbar-fixed-bottom {
+    bottom: 0;
+    margin-bottom: 0;
+    border-width: 1px 0 0;
+}
+/*.navbar-fixed-top, .navbar-fixed-bottom {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}*/
+.shopBtn{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+.shopBtn button{
+	width: 50%;
+	height: 50px;
+	background-color: #FF9053;
+	text-align: center;
+	line-height: 50px;
+	margin: 0;
+	padding: 0;
+	font-size: 0.32rem;
+	color: #fff;
+	border: none;
+	border-radius: 0;
+}
+.shopBtn #buy{
+	background: #FF0900;
+}
+/*隐藏的部分*/
+.hide{
+	width: 100%;
+	height: 9.3rem;
+	background-color: #fff;
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+	display: none;
+}
+.specCont{
+	position: relative;
+	height: 100%;
+	padding: 0 0.3rem 1rem;
+}
+.hide .specCont .specImg{
+	width: 2.44rem;
+	height: 2.44rem;
+	margin-top: -0.46rem;
+	overflow: hidden;
+}
+.hide .specCont .specImg img{
+	min-height: 100%;
+	min-width: 100%;
+}
+.hide .specCont .specClose{
+	width: 0.38rem;
+	height: 0.38rem;
+	position: absolute;
+	top:0.3rem;
+	right: 0.4rem;
+}
+.hide .specCont .specTop{
+	display: flex;
+	flex-direction: row;
+	height: 2rem;
+	padding: 0 0.3rem;
+	margin-bottom: 0.2rem;
+}
+.hide .specCont .specInfo{
+	margin-left: 5%;
+	width: 60%;
+	padding: 0.3rem 0 0;
+}
+.hide .specCont .specInfo #mo{
+	font-size: 0.28rem;
+	color: #FF0900;
+	line-height: 0.28rem;
+	margin-bottom: 0.2rem;
+}
+.hide .specCont .specInfo p{
+	font-size: 0.24rem;
+	color: #333;
+	line-height: 0.24rem;
+	margin-bottom: 0.14rem;
+}
+.specType{
+	border-bottom: 1px solid #EAEAEA;
+}
+.specType p{
+	font-size: 0.28rem;
+	color: #333;
+	line-height: 0.68rem;
+	margin: 0;
+}
+
+.specType span{
+	width: 20%;
+    background-color: #DFDFDF;
+    color: #7E7E7E;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 4%;
+    position: relative;
+    top: 20px;
+}
+.add_chose>span{
+	float: left;
+	font-size: 0.28rem;
+	color: #626262;
+	margin-top: 0.46rem;
+}
+.p_number,.number{
+	width: 100%!important;
+}
+.p_number .add_chose .reduce{
+	float:left;
+	margin:0.46rem 0 0 0;
+	display:block;
+	width:25px;
+	height:25px;
+	line-height:99em;
+	overflow:hidden;
+	background:url(../images/jian.png) no-repeat;
+	background-size: 100%;
+}
+.p_number .add_chose .add{
+	float:left;
+	margin:0.46rem 0 0 25%;
+	display:block;
+	width:25px;
+	height:25px;
+	line-height:99em;
+	overflow:hidden;
+	background:url(../images/jia.png) no-repeat;
+	background-size: 100%;
+}
+.p_number .add_chose a>img{width: 100%;}
+.p_number .add_chose a.reduce{background-position:0 0;}
+.p_number .add_chose .text{
+	float: left;
+    margin: 0.36rem 0 0 5px;
+    display: inline;
+    border: none;
+    width: 1.2rem;
+    line-height: 0.36rem;
+    font-size: 0.28rem;
+    color: #990000;
+    font-weight: bold;
+    text-align: center;
+}
+.Cns{
+	display: none;
+	width: 100%;
+	height: 200px;
+	background-color: #fff;
+}
+.Coupons{
+	margin-top: 50px;
+}
+.left{
+	width: 60%;
+	height: 64px;
+	background-color: #fff;
+	margin-left: 10%;
+	float: left;
+	margin-top: 15px;
+	border-radius: 20px;
+	float: left;
+}
+.left>img{
+    width: 50px;
+    margin-top: 6px;
+    margin-left: 7%;
+    float: left;
+}
+.left>div{
+	margin-top: 11px;
+}
+.left>div>p{
+	margin-left: 40%;
+	margin-bottom: 0;
+}
+.left>div>p:nth-child(1){
+	font-size: 1rem;
+	color: #2b2b2b;
+}
+.left>div>p:nth-child(2){
+	font-size: 0.7rem;
+}
+.right{
+	width: 20%;
+	height: 64px;
+	background-color: red;
+	float: left;
+	margin-top: 15px;
+	border-radius: 20px;
+	text-align: center;
+}
+.right>p{
+	color: #fff;
+}
+.right>p:nth-child(1){
+	font-size: 1rem;
+	margin-bottom: 0;
+	margin-top: 10px;
+}
+.right>p:nth-child(2){
+	font-size: 0.8rem;
+}
+.Cou{
+	display: none;
+}
+.title{
+	text-align: center;
+	width: 80%;
+	margin-left: 10%;
+	background-color: #fff;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 70px;
+}
+.title span {
+    display: block;      /*设置为块级元素会独占一行形成上下居中的效果*/
+    position: relative;  /*定位横线（当横线的父元素）*/
+    color: #444444;      /*居中文字的颜色*/ 
+} 
+.specType .proType{
+	float:left;
+	height: 0.6rem;
+	padding: 0 0.2rem;
+	background: #dfdfdf;
+	border-radius: 0.2rem;
+	font-size:0.24rem;
+	color: #333;
+	line-height: 0.6rem;
+	margin: 0 0.2rem 0.2rem 0;
+}
+.specType .proType.active{
+	background: #ff0900;
+	color: #fff;
+}
+.xq>div:nth-child(1)>p.proAds{
+	font-size:0.24rem;
+	color: #a0a0a0;
+	margin: 0;
+}
+#define{
+	width: 100%;
+	height: 1rem;
+	background-color: #FF0900;
+	text-align: center;
+	line-height: 1rem;
+	font-size: 0.32rem;
+	color: #fff;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.popCart{
+	display: none;
+	width:3.92rem;
+	height:2.22rem;
+	padding-top: 0.42rem;
+	background:#DC1818;
+	border-radius:8px;
+	text-align: center;
+	font-size: 0.28rem;
+	color: #fff;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 1001;
+}
+.popCart img{
+	display: block;
+	width: 0.8rem;
+	height: 0.56rem;
+	margin: 0 auto 0.26rem;
+}

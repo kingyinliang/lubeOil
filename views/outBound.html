@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>出库</title>
+    <script src="publick/js/responsive.js"></script>
+    <link href="publick/css/mui.min.css" rel="stylesheet"/>
+    <link href="publick/css/mui.picker.min.css" rel="stylesheet" />
+	<link href="publick/css/mui.poppicker.css" rel="stylesheet" />
+    <link href="css/style.css?v=1.0" rel="stylesheet"/>
+</head>
+<style type="text/css">
+	.mui-content{
+		background: none;
+	}
+	#photo1{
+		display: none;
+	}
+</style>
+<body>
+	<div id="vmObj" v-cloak>
+	<header class="mui-bar mui-bar-nav whiteHeader">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">出库</h1>
+	</header>
+	<div class="mui-content">
+		<div class="outTop" @tap="selUnit">
+			<span>姓名</span>
+			<input type="text" placeholder="点击选择客户" readonly v-model="userName" />
+			<img src="images/jiantou.png" class="arrowDown"/>
+		</div>
+		<p class="outTit">选择商品</p>
+		<div class="inBan outAdd" @tap="selGood">
+			<img src="images/outAdd.png" alt="" v-if="!selGoods" />
+			<div style="width: 100%;" v-else>
+			<p>{{goodName}}</p>
+			<p class="p1"><span>X{{selGoods.stock}}</span><span>￥{{selGoods.cost_price}}</span><span>￥{{selGoods.sale_amount}}</span></p>
+			<img :src="selGoods.goods_img" alt="" />
+			</div>
+		</div>
+		<div class="outShop">
+			<div>
+				<span>商品数量</span>
+				<input type="text" placeholder="0" v-model="goodNum" />
+			</div>
+			<div>
+				<span>金额</span>
+				<input type="text" placeholder="￥0.00" v-model="outPrice" />
+			</div>
+		</div>
+		<div class="outP">
+			<span>抹零</span>
+        	<input type="text" placeholder="请输入抹零价格" v-model="zeroPrice" />
+		</div>
+        <ul class="withDlist inList outList">
+        	<li class="mui-table-view-cell mui-radio mui-right">
+        		<span>支付宝支付</span>
+        		<input name="radio" type="radio" value="alipay" v-model="payWay">
+        	</li>
+        	<li class="mui-table-view-cell mui-radio mui-right">
+        		<span>微信支付</span>
+        		<input name="radio" type="radio" value="wxpay" v-model="payWay">
+        	</li>
+        	<li class="mui-table-view-cell mui-radio mui-right">
+        		<span>现金支付</span>
+        		<input name="radio" type="radio" value="cash" v-model="payWay">
+        	</li>
+        	<li class="mui-table-view-cell mui-radio mui-right">
+        		<span>欠款</span>
+        		<input name="radio" type="radio" value="arrear" v-model="payWay">
+        	</li>
+        </ul>
+        <div class="outP outR">
+			<span>备注</span>
+        	<textarea placeholder="请输入备注" v-model="markCont"></textarea>
+		</div>
+		<!--<div class="payBot">-->
+			<!--<div class="div1">合计:<span>￥{{amount}}</span></div>-->
+			<div class="div2 boundBtn" @tap="cfmOutbound">出售</div>
+		<!--</div>-->
+	</div>
+	</div>
+	<script src="publick/js/jquery-3.1.0.min.js"></script>
+	<script src="publick/js/vue.min.js"></script>
+    <script src="publick/js/mui.min.js"></script>
+    <script src="publick/js/mui.picker.min.js"></script>
+	<script src="publick/js/mui.poppicker.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/outbound.js?v=1.1"></script>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</body>
+</html>

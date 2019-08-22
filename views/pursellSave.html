@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>进销存</title>
+		<script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<!--<link href="css/iconfont.css" rel="stylesheet" />-->
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+		<style type="text/css">
+			#pullrefresh{
+				/*top:0.88rem;*/
+				/*top:7rem;*/
+				overflow-y:auto !important;
+				/*position: static;*/
+				margin-top: 0.88rem;
+				min-height: 5rem;
+			}
+		</style>
+	<body>
+		<header class="mui-bar header idxHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title head-title">进销存</h1>
+		    <a class="mui-icon mui-pull-right headTxt">核销</a>
+		</header>
+		<div class="mui-content" id="vmObj" v-cloak>
+			<div class="idxMenu">
+		        <ul class="mui-row mui-table-view pursellList clearfix">
+		            <li class="mui-table-view-cell mui-col-xs-4" @tap="inbound">
+	                   	<img src="images/pursell1.png">
+	                	<p>入库</p>
+		            </li>
+		            <li class="mui-table-view-cell mui-col-xs-4" @tap="outbound">
+	                   	<img src="images/pursell2.png">
+	                	<p>出库</p>
+		            </li>
+		            <li class="mui-table-view-cell mui-col-xs-4" @tap="inventory">
+	                   	<img src="images/pursell3.png">
+	                	<p>库存</p>
+		            </li>
+		            <li class="mui-table-view-cell mui-col-xs-4" @tap="hisRecd">
+	                   	<img src="images/pursell4.png">
+	                	<p>历史账单</p>
+		            </li>
+		            <li class="mui-table-view-cell mui-col-xs-4" @tap="userManage">
+	                   	<img src="images/pursell5.png">
+	                	<p>客户管理</p>
+		            </li>
+		            <li class="mui-table-view-cell mui-col-xs-4" @tap="unsold">
+	                   	<img src="images/pursell6.png">
+	                	<p>滞销</p>
+		            </li>
+		        </ul>
+		    </div>
+		    <div class="serCont_s">
+		    	<ul class="filteTab purTab">
+					<li class="active" @tap="dft">默认</li>
+					<li @tap="saleNum">销售量</li>
+					<li @tap="saleAmount">销售额</li>
+				</ul>
+			    <div id="pullrefresh" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="goodsList clearfix">
+							<li class="clearfix" v-for="(goodsList,index) in pursellLists" @tap="editBound(index)">
+								<img :src="goodsList.goods_img" v-if="goodsList.goods_img">
+								<img src="images/logo.png" v-else>
+								<div class='rcmDesc'>
+									<p class="mui-ellipsis p1">{{goodsList.goods_name}}</p>
+									<p class="p2">型号/规格：{{goodsList.spec}}/{{goodsList.spec}}</p>
+									<p class="p3">￥{{goodsList.cost_price}}</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+		    </div>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+	    <script src="publick/js/mui.min.js"></script>
+	    <script src="js/common.js"></script>
+    	<script src="js/pursellSave.js?v=1.0"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>历史账单</title>
+		<script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<!--<link href="css/iconfont.css" rel="stylesheet" />-->
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+		<style type="text/css">
+			.mui-content{
+				background: none;
+			}
+			#pullrefresh{
+				top:0.88rem;
+				overflow-y: auto;
+				margin-top: 0.88rem;
+				min-height: 5rem;
+			}
+		</style>
+	<body>
+		<header class="mui-bar mui-bar-nav whiteHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">历史账单</h1>
+		</header>
+		<div class="mui-content" id="vmObj" v-cloak>
+			<div class="invtSerch">
+		        <img src="images/sousuo.png"/>
+		        <input type="text" placeholder="名称" v-model="serCont" />
+		   </div>
+		    <div class="serCont_s">
+		    	<ul class="filteTab purTab invtTab hisBound">
+					<li>
+						<select id="myYear" v-model="selY" @change="selYear"></select>年
+						<img src="images/jiantou.png" class="arrowDown"/>
+					</li>
+					<li>
+						<select id="myMonth" v-model="selM" @change="selMonth">
+							<option :value="index+1" v-for="(mArr,index) in mArrs">{{mArr}}</option>
+						</select>月
+							<img src="images/jiantou.png" class="arrowDown"/>
+					</li>
+					<li>
+						<select name="" v-model="selCont" @change="selType">
+							<option value="">全部</option>
+							<option value="alipay">支付宝</option>
+							<option value="wxpay">微信支付</option>
+							<option value="cash">现金</option>
+							<option value="arrear">欠款</option>
+						</select>
+							<img src="images/jiantou.png" class="arrowDown"/>
+					</li>
+				</ul>
+			    <div id="pullrefresh" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="rfdType clearfix">
+							<li v-for="(userList,index) in userLists" @tap="toInfo(index)">
+								<div>
+									<p>{{userList.customer_name}}</p>
+									<p>{{userList.addTime}}</p>
+								</div>
+								<p>+{{userList.amount}}</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+		    </div>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+	    <script src="publick/js/mui.min.js"></script>
+	    <script src="js/common.js"></script>
+    	<script src="js/hisBound.js?v=1.1"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

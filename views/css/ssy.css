@@ -1,0 +1,104 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #F5F5F5 !important;
+}
+.serCont{
+	padding:0 0.4rem;
+	background: #fff;
+}
+.serCont>li{
+	padding: 0.2rem 0;
+	border-bottom: 1px solid #e0e0e0;
+	font-size: 0.26rem;
+	color: #666;
+	list-style: none;
+}
+.hisList{
+	margin: 0.2rem 0 0 0.4rem;
+}
+.hisList li{
+	list-style: none;
+	font-size: 0.24rem;
+	color: #333;
+	line-height: 0.24rem;
+	padding: 0.1rem 0;
+	margin-bottom: 0.2rem;
+}
+.hisList li span{
+	font-size: 0.44rem;
+	vertical-align: middle;
+	line-height: 0.24rem;
+}
+.serClear{
+	padding: 0.2rem 0;
+	font-size: 0.24rem;
+	color: #999;
+	text-align: center;
+	background: #fff;
+}
+.mui-col-xs-6{
+	margin-right: 1%;
+	width: 49.5%!important;
+}
+.mui-col-xs-6:nth-child(2n){
+	margin-right: 0;
+}
+.mui-col-xs-6>a>img:nth-child(1){
+	width: 100%;
+}
+.mui-col-xs-6>a>p{
+	 width: 80%;    
+	 margin-bottom: 0;                      
+	 overflow: hidden;     /*文本不换行*/            
+	 white-space: nowrap;  /*文字超出用省略号*/            
+	 text-overflow:ellipsis;
+	 margin-left: 10%;
+	 font-size: 0.3rem;
+	 color: #333;
+}
+.mui-col-xs-6>a>div{
+	margin-left: 10%;
+}
+.mui-col-xs-6>a>div>span{
+    font-size: 0.28rem;
+    position: relative;
+    top: -5px;
+    color: red;
+    float: left;
+}
+.mui-col-xs-6>a>div>s{
+	font-size:0.28rem; 
+	position: relative;
+    top: -5px;
+    color: #4b4b4b;
+    float: left;
+    margin-left: 10%;
+}
+.mui-col-xs-6>a>div>img{
+	width: 10%;
+	float: right;
+	margin-right: 2%;
+}
+/*.hide{
+	display: none;
+}*/
+/*.hide>div{
+	margin-top: 200px;
+	text-align: center; 
+}
+.hide>div>img{
+	width: 50%;
+}*/
+.hide img{
+	width: 3.18rem;
+	height: 3.76rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -1.88rem;
+	margin-left: -1.58rem;
+}

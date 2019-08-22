@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title>我的优惠券页</title>
+	    <script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+	<style type="text/css">
+		#pullrefresh{
+			top:96px;
+		}
+	</style>
+	<body>
+		<header class="mui-bar header idxHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title head-title">我的优惠券</h1>
+		</header>
+		<div class="mui-content container" id="vmObj" v-cloak>
+			<div class="tab_new">
+				<div class="tabs active" @tap="tab_v">
+					<span>抵扣券</span>
+				</div>
+				<div class="tabs" @tap="tab_n">
+					<span>洗车券</span>
+				</div>
+			</div>
+			<div id="pullrefresh" class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+			<ul class="couponList" v-if="curType==1">
+				<li v-for="(cursonList,index) in cursonLists" @tap="useCoupon(index)">
+					<div class="couLeft">
+						<p>￥<span>{{cursonList.couMoney}}</span></p><p>{{cursonList.name}}</p>
+					</div>
+					<div class="couRight">
+						<div>适用于单笔满{{cursonList.fullMoney}}元使用</div>
+						<p>{{cursonList.couTime}}</p>
+					</div>
+				</li>
+			</ul>
+			<ul class="couponList" v-else>
+				<li v-for="(cursonList,index) in cursonLists" @tap="useCoupon(index)">
+					<div class="couLeft">
+						<p>{{cursonList.name}}</p>
+					</div>
+					<div class="couRight">
+						<div>编码：<br />{{cursonList.code}}</div>
+						<p>{{cursonList.couTime}}</p>
+					</div>
+				</li>
+			</ul>
+			</div>
+			</div>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+		<script src="publick/js/mui.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/myCoup.js?v=1.1"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+</html>

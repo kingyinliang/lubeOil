@@ -1,0 +1,63 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #F4F4F4 !important;
+}
+/*导航栏*/
+header{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background-color: #fff;
+	text-align: center;
+   	position: fixed;
+   	top: 0;
+   	z-index: 5;
+}
+header>ul{
+	text-align: center;
+}
+header a{
+	margin-left: 15px;
+    width: 25px;
+    float: left;
+    
+    z-index: 50;
+}
+header img{
+	margin-top: 11px;
+	width: 15px;
+}
+header span{
+	line-height: 50px;
+	color: #2b2b2b;
+	font-size: 1.2rem;
+	margin-left: -35px;
+}
+.tz>div{
+	margin-top: 60px;
+}
+#data{
+	float: right;
+}
+.mui-card{
+	background: #ff0000 !important;
+}
+.mui-card>img{
+	width: 100%;
+}
+.mui-card-content-inner>p{
+	color: #fff;
+	font-weight: bold;
+}
+.mui-card-content-inner>span{
+	color: #fff;
+}
+hr{
+	background-color: #e8e8e8;
+    height: 1px !important;
+    border: none;
+}

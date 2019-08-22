@@ -1,0 +1,59 @@
+[v-cloak]{
+	display:none;
+}
+.header{
+    background: #fff;
+    z-index: 1000;
+    /*box-shadow: none;*/
+}
+.header a{
+    color:#666;
+}
+.head-title{
+    font-size: 18px;
+    color:#333;
+    margin:0;
+    line-height: 44px;
+}
+.mui-content{
+	background: #fff;
+}
+.clearfix:after{
+    content:".";
+    display:block;
+    height:0;
+    clear: both;
+    visibility:hidden;
+    position: relative;
+}
+/*首页*/
+.idxHeader{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.idxSearch{
+	display: inline-block;
+	/*width: 100%;*/
+	text-align: center;
+}
+.idxSearch input{
+	width: 5rem !important;
+	height:32px !important;
+}
+.banner img{
+	height: 3.6rem !important;
+}
+/*搜索页*/
+.serSearch input{
+	background: #fff;
+	border: 1px solid #999;
+	border-radius: 32px;
+	font-size: 0.26rem;
+	color: #333;
+}
+.searchIcon{
+	font-size: 0.3rem;
+	line-height: 44px;
+	margin-right: 0.1rem;
+}

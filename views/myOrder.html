@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>全部订单</title>
+		<script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<!--<link href="css/iconfont.css" rel="stylesheet" />-->
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+		<style type="text/css">
+			#pullrefresh{
+				top: 44px;
+			}
+		</style>
+	<body>
+		<header class="mui-bar header idxHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title head-title">全部订单</h1>
+		</header>
+		<div class="mui-content" id="vmObj" v-cloak>
+			<div id="pullrefresh" class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+			<ul class="orderList">
+				<li v-for="(orderList,index) in orderLists" @tap="toOrderInfo(index)">
+					<div class="orderTop">
+						<span class="mui-pull-right" v-if="orderList.status==0">待付款</span>
+						<span class="mui-pull-right" v-else-if="orderList.status==1">待发货</span>
+						<span class="mui-pull-right" v-else-if="orderList.status==2">待收货</span>
+						<span class="mui-pull-right" v-else-if="orderList.status==3">待评价</span>
+						<span class="mui-pull-right" v-else-if="orderList.status==4">完成交易</span>
+						<span class="mui-pull-right" v-else-if="orderList.status==5">订单取消</span>
+						<span class="mui-pull-right" v-else-if="orderList.status==6">退款退货</span>
+						<span class="mui-pull-right" v-else-if="orderList.status==7">待服务</span>
+						<span class="mui-pull-right" v-else-if="orderList.status==8">待服务确认</span>
+						<s v-if="orderList.send_type==1">邮寄店铺：{{orderList.shop_name}}</s>
+	    				<s v-else>自提店铺：{{orderList.shop_name}}</s>
+					</div>
+					<div class="orderMid">
+						<div class="orderBan">
+							<img :src="orderList.order_goods[0].goods_img"/>
+						</div>
+						<div class="shopInfo mui-ellipsis">
+							<p class="p1">{{orderList.order_goods[0].goods_name}}</p>
+							<p class="p2">型号/规格：{{orderList.order_goods[0].spec1_info}}{{orderList.order_goods[0].spec2_info}}</p>
+							<p class="p2">订单时间：{{orderList.ordertime}}</p>
+							<p class="p2">服务：￥{{orderList.service_price}}/配件：￥{{orderList.peijian_price}}</p>
+						</div>
+						<div class="orderNum">x{{orderList.order_goods[0].num}}</div>
+					</div>
+					<div class="orderMid_b">
+						<div>共{{orderList.order_goods[0].num}}件商品  总计：<p><span>¥</span>{{orderList.order_amount}}</p>（含运费：¥{{orderList.delivery_fee}}）</div>
+					</div>
+					<div class="orderBot" v-if="orderList.status==0">
+						<span class="mui-pull-right activeBtn" @tap.stop="payment(index)">立即付款</span>
+						<span class="mui-pull-right" @tap.stop="cancelOrder(index)">取消订单</span>
+					</div>
+					<!--<div class="orderBot" v-else-if="orderList.status==1">-->
+						<!--<span class="mui-pull-right" @tap.stop="refund(index)">申请退款</span>-->
+					<!--</div>-->
+					<div class="orderBot" v-else-if="orderList.status==2">
+						<span class="mui-pull-right activeBtn" @tap.stop="cfmGood(index)">确认收货</span>
+						<span class="mui-pull-right" @tap.stop="checkLogis(index)">查看物流</span>
+					</div>
+					<div class="orderBot" v-else-if="orderList.status==3">
+						<span class="mui-pull-right activeBtn" @tap.stop="evaluate(index)">立即评价</span>
+					</div>
+					<div class="orderBot" v-else-if="orderList.status==8">
+						<span class="mui-pull-right activeBtn" @tap.stop="cfmService(index)">确认服务</span>
+					</div>
+					<!--<div class="orderBot" v-else-if="orderList.status==4">
+						<span class="mui-pull-right activeBtn" @tap.stop="evaluate(index)">评价</span>
+						<span class="mui-pull-right" @tap.stop="delOrder(index)">删除</span>
+					</div>
+					<div class="orderBot" v-else-if="orderList.status>4">
+						<span class="mui-pull-right" @tap.stop="delOrder(index)">删除</span>
+					</div>-->
+				</li>
+			</ul>
+			</div>
+			</div>
+		</div>
+		<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+	    <script src="publick/js/mui.min.js"></script>
+	    <script src="js/common.js"></script>
+    	<script src="js/myOrder.js?v=1.0.1"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

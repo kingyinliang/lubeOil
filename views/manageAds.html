@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title>管理收货地址页</title>
+	    <script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css?v=1.1" rel="stylesheet"/>
+	</head>
+	<style type="text/css">
+		.adsList{
+			margin-bottom: 1.16rem;
+		}
+	</style>
+	<body>
+		<header class="mui-bar header regHeader newHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title head-title">管理收货地址</h1>
+		</header>
+		<div class="mui-content container" id="vmObj" v-cloak>
+			<ul class="adsList">
+				<li v-for="(adsList,index) in adsLists" @tap="toOrder(index)">
+					<div class="adsInfo">
+						<p class="p1"><span>{{adsList.consignee}}<span>{{adsList.mobile}}</span></p>
+						<p class="p2">{{adsList.province_text}}{{adsList.city_text}}{{adsList.area_text}}{{adsList.address}}</p>
+					</div>
+					<div class="adsBtn">
+						<div class="div1" @tap.stop="setDefault(index)">
+							<input type="radio" value="1" v-model="adsList.is_default" />默认地址
+						</div>
+						<div class="div2">
+							<div @tap.stop="editAds(index)"><img src="images/adsEdit.png"/>编辑</div>
+							<div @tap.stop="delAds(index)"><img src="images/adsDel.png"/>删除</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div class="addBtn" @tap="addAds">新建收货地址</div>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+		<script src="publick/js/mui.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/manageAds.js?v=1.5"></script>
+		<script type="text/javascript">
+			mui.init();
+            setTimeout(() => {
+                window.onpageshow=function(e){
+                    if(e.persisted) {
+                        window.location.reload()
+                    }
+                };
+            },500)
+		</script>
+	</body>
+</html>

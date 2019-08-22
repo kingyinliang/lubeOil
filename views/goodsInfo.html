@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>商品详情</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script type="text/javascript" src="publick/js/responsive.js"></script>
+<link rel="stylesheet" type="text/css" href="publick/css/mui.min.css">
+<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+<link rel="stylesheet" type="text/css" href="css/spxq.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<style type="text/css">
+	.mui-bar-transparent{
+		background: rgba(29,130,210,0);
+	}
+	.mui-content{
+		padding: 0;
+	}
+	.proType-disabled{
+		background-color: #f5f7fa!important;
+		border-color: #e4e7ed;
+		color: #c0c4cc !important;
+		cursor: not-allowed;
+	}
+</style>
+<body>
+	<div id="vmObj" v-cloak>
+	<header class="mui-bar mui-bar-transparent">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+	    <a class="mui-icon mui-pull-right headTxt toClassify">
+	    	<img src="images/coledIcon.png" style="margin: 0;" @tap="cancel_col" v-if="productInfos.is_collect==1"/>
+	    	<img src="images/colIcon.png" style="margin: 0;" @tap="add_col" v-else/>
+	    </a>
+	</header>
+	<div class="mui-content">
+		<!-- 轮播 -->
+	    <section class="banner">
+	    	<div class="mui-slider" id="slider">
+			  	<div class="mui-slider-group mui-slider-loop imgSet">
+				    <div class="mui-slider-item mui-slider-item-duplicate banslide"><img :src="lastImg" /></div>
+				    <div class="mui-slider-item banslide" v-for="(bannerIndex,index) in bannerIndexs">
+				    	<img :src="bannerIndex.goods_img" />
+				    </div>
+				    <div class="mui-slider-item mui-slider-item-duplicate banslide"><img :src="firstImg" /></div>
+				</div>
+				<div class="mui-slider-indicator pointslide">
+				    <div class="mui-indicator mui-active" v-for="(bannerIndex,index) in bannerIndexs" v-if="index==0" @tap="tobanner(index)"></div>
+				    <div class="mui-indicator" v-else></div>
+				</div>
+			</div>
+		</section>
+		<!-- 详情 -->
+		<section class="xq">
+			<div>
+				<span id="xianjia">¥{{productInfos.price}}</span>
+				<span id="yuanjia">/{{productInfos.unit}}</span>
+				<p id="name">{{productInfos.goods_name}}</p>
+		    	<div>
+		    		<span>单价/单位：{{productInfos.packet_num}}/{{productInfos.packet_unit}}</span>
+		    		<span id="praise">运费：{{productInfos.freight}}</span>
+		    		<span id="salesVolume">销量：{{productInfos.sell_count}}</span>
+			    	<span>发货地：{{productInfos.send_area}}</span>
+		    	</div>
+			</div>
+			<hr>
+		</section>
+		<div id="choose" @tap="specify">
+			<span>选择规格</span>
+			<img src="images/jiantou.png">
+		</div>
+		<div class="choose comment" @tap="comments">
+			<span>用户评论</span>
+			<img src="images/jiantou.png">
+		</div>
+		<div class="choose comment" @tap="coupons">
+			<span>优惠券</span>
+			<img src="images/jiantou.png">
+		</div>
+		<hr>
+		<div class="infoCont">
+			<div class="infoTab">
+				<span class="active" @tap="tabInfo">商品详情</span>
+				<span @tap="tabSpec">商品规格</span>
+			</div>
+			<div class="content" v-html="productInfos.goods_content" v-if="tab==0"></div>
+			<div class="content" v-html="productInfos.good_spec" v-else></div>
+		</div>
+		<div class="hide">
+			<div class="specCont">
+				<img class="specClose" src="images/close.png" @tap="closeSpec"/>
+				<div class="specTop">
+					<div class="specImg"><img :src="productInfos.spec_info? productInfos.spec_info[idx].spec2_list? productInfos.spec_info[idx].spec2_list[idx1].spec_img : productInfos.spec_info[idx].spec_img : productInfos.goods_img"></div>
+					<div class="specInfo">
+						<span id="mo">¥{{specPrice}}</span>
+						<p>库存：{{productInfos.spec_info? productInfos.spec_info[idx].spec2_list? productInfos.spec_info[idx].spec2_list[idx1].stock : productInfos.spec_info[idx].stock : productInfos.stock}}{{productInfos.unit}}</p>
+						<p v-if="!productInfos.spec_info">默认</p>
+						<p v-else>{{specName1}} {{specName2}}</p>
+					</div>
+				</div>
+				<div class="specType" v-if="!productInfos.spec_info">
+					<ul class="select clearfix">
+						<li class="proType active">默认</li>
+					</ul>
+				</div>
+				<div v-else>
+					<div class="specType">
+						<p>{{productInfos.spec_name1}}</p>
+						<ul class="select clearfix">
+							<li class="proType" :class="{active:idx==index}" v-for="(specifyInfo,index) in productInfos.spec_info" @tap="proType(index)">{{specifyInfo.spec_value}}</li>
+						</ul>
+					</div>
+					<div class="specType" v-if="productInfos.spec_info[0].spec2_list">
+						<p>{{productInfos.spec_name2}}</p>
+						<ul class="select clearfix">
+							<li class="proType" :class="{'active':idx1==index, 'proType-disabled': specify_sub.stock<=0}" v-for="(specify_sub,index) in productInfos.spec_info[idx].spec2_list" @tap="proType_sub(index)">{{specify_sub.spec2_value}}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="specType" v-if="productInfos.service_name">
+					<p>服务</p>
+					<ul class="select clearfix">
+						<li class="proType" :class="{active:idx2==1}" @tap="selServ">{{productInfos.service_name}}</li>
+					</ul>
+				</div>
+				<div class="specType" v-if="productInfos.peijian_name">
+					<p>配件</p>
+					<ul class="select clearfix">
+						<li class="proType" :class="{active:idx3==1}" @tap="selPart">{{productInfos.peijian_name}}</li>
+					</ul>
+				</div>
+				<div class="p_number">
+					<div class="f_l add_chose clearfix">
+						<span>购买数量</span>
+						<a class="add" href="javascript:void(0)" @tap="jia"><img src="images/jia.png"></a>
+						<input type="number" name="qty_item_1" v-model="proNum" class="text" />
+						<a class="reduce" href="javascript:void(0)" @tap="jian"><img src="images/jian.png"></a>
+					</div>
+				</div>
+				<div id="define" @tap="addCart" v-if="!isBuy">加入购物车</div>
+				<div id="define" @tap="confirm" v-else>立即购买</div>
+			</div>
+		</div>
+		<div class="shopBtn">
+			<button id="add" @tap="shopCart">加入购物车</button>
+			<button id="buy" @tap="buy">立即购买</button>
+		</div>
+		<div class="popCart">
+			<img src="images/cartIcon.png"/>已成功添加到购物车
+		</div>
+	</div>
+	</div>
+<!-- js插件 -->
+<script src="publick/js/jquery-3.1.0.min.js"></script>
+<script src="publick/js/vue.min.js"></script>
+<script src="publick/js/mui.js"></script>
+<script src="js/common.js"></script>
+<script src="js/goodsInfo.js?v=1.1"></script>
+<script type="text/javascript">
+	mui.init();
+</script>
+</body>
+</html>

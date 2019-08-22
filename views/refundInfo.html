@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>退款详情</title>
+<script type="text/javascript" src="publick/js/responsive.js"></script>
+<link rel="stylesheet" type="text/css" href="publick/css/mui.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<style type="text/css">
+	.mui-content{
+		background: #F9F9F9;
+		padding-bottom: 0.98rem;
+	}
+</style>
+<body>
+    <!-- 导航栏 -->
+    <header class="mui-bar mui-bar-nav whiteHeader">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">退款详情</h1>
+	</header>
+	<div id="vmObj" class="mui-content" v-cloak>
+    	<div class="orderAds rfdTop">
+    		<span>{{orderInfos.refund_status}}</span>
+    		<img src="images/refund.png"/>
+    	</div>
+    	<div class="orderInfo">
+	    	<div class="storeDiv orderTop">
+	    		<span class="mui-pull-right">{{orderInfos.refund_status}}</span>
+	    		单号：{{orderInfos.order_sn}}
+	    	</div>
+	    	<div class="rfdGood">
+	    	<div class="colCont orderGood">
+				<div class="carBan">
+					<img :src="orderInfos.goodslist[0].goods_img">
+				</div>
+				<div class="colCar">
+					<p class="mui-ellipsis p1">{{orderInfos.goodslist[0].goods_name}}</p>
+					<p class="p2">型号/规格：{{orderInfos.goodslist[0].spec1_info}}；{{orderInfos.goodslist[0].spec2_info}}</p>
+					<p class="p3">下单时间：{{orderInfos.ordertime}}<span>x{{orderInfos.goodslist[0].num}}</span></p>
+				</div>
+			</div>
+			<p class="p4">共{{orderInfos.goodslist[0].num}}件商品 总计：<span>￥{{orderInfos.refund_money}}</span>（含运费：{{orderInfos.goodslist[0].delivery_fee}}）</p>
+			</div>
+			<div class="rfdInfo">
+				<p class="rfdTip">详细信息</p>
+				<ul>
+					<li><span>退货流水单号：</span>{{orderInfos.id}}件</li>
+					<li><span>退货时间：</span>{{orderInfos.refund_time}}</li>
+					<li><span>类型：</span>{{orderInfos.retund_type}}</li>
+				</ul>
+			</div>
+			<div class="rfdInfo">
+				<p class="rfdTip">订单状态</p>
+				<ul>
+					<li><span>申请状态：</span>{{orderInfos.refund_status}}</li>
+					<li><span>退货原因：</span>{{orderInfos.reason}}</li>
+					<li><span>订单状态：</span>{{orderInfos.order_status}}</li>
+				</ul>
+			</div>
+		</div>
+    </div>
+<!-- js插件 -->
+<script src="publick/js/jquery-3.1.0.min.js"></script>
+<script src="publick/js/vue.min.js"></script>
+<script src="publick/js/mui.js"></script>
+<script src="js/common.js"></script>
+<script src="js/refundInfo.js"></script>
+<script type="text/javascript">
+	mui.init();
+</script>
+</body>
+</html>

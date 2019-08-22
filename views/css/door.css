@@ -1,0 +1,77 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #fff !important;
+}
+/*导航栏*/
+header{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background-color: #fff;
+	text-align: center;
+   	position: fixed;
+   	top: 0;
+   	z-index: 5;
+   	border-bottom: 1px solid #e8e8e8;
+}
+header>ul{
+	text-align: center;
+}
+header a{
+	margin-left: 15px;
+    width: 25px;
+    float: left;
+    
+    z-index: 50;
+}
+header img{
+	margin-top: 11px;
+	width: 15px;
+}
+header span{
+	line-height: 50px;
+	color: #2b2b2b;
+	font-size: 1.2rem;
+	margin-left: -35px;
+}
+/*详情*/
+.xq{
+	margin-top: 50px;
+}
+.xq>img{
+	width: 100%;
+}
+.xq>div{
+	width: 84%;
+	margin-left: 8%;
+}
+.xq>div>p{
+	margin-top: 20px;
+	color: #3B3B3B;
+}
+/*详细信息*/
+.xxxq>div{
+	text-align: center;
+}
+.xxxq>div>img{
+	margin-top: 150px;
+	width: 20%;
+}
+.xxxq>div>span{
+	font-size: 1rem;
+	color: #9F9F9F;
+	position: relative;
+	top: 15px;
+}
+.xxxq>div>p{
+	font-size: 1rem;
+	margin-top: 22px;
+}
+.xxxq>div>p>span{
+	color: #6ED967;
+	margin-left: 2%;
+}

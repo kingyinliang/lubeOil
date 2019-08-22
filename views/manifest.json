@@ -1,0 +1,650 @@
+{
+	"@platforms": ["android", "iPhone", "iPad"],
+	"id": "H546F4382",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"name": "东海润通",/*应用名称，程序桌面图标名称*/
+	"version": {
+		"name": "1.0.0",/*应用版本名称*/
+		"code": "83"
+	},
+	"description": "",/*应用描述信息*/
+	"icons": {
+		"72": "icon.png"
+	},
+	"launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"developer": {
+		"name": "",/*开发者名称*/
+		"email": "",/*开发者邮箱地址*/
+		"url": "http://www.dcloud.io"
+	},
+	"permissions": {
+        "Cache": {
+            "description": "管理应用缓存"
+        },
+        "Console": {
+            "description": "跟踪调试输出日志"
+        },
+        "Contacts": {
+            "description": "访问系统联系人信息"
+        },
+        "Events": {
+            "description": "应用扩展事件"
+        },
+        "Messaging": {
+            "description": "访问通讯能力"
+        },
+        "Maps": {
+            "description": "管理地图插件"
+        },
+        "Speech": {
+            "description": "管理语音识别插件"
+        }
+	},
+	"plus": {
+		"splashscreen": {
+			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"waiting": true
+		},
+		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
+		"distribute": {
+			"apple": {
+				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
+				"mobileprovision": "",/*iOS应用打包配置文件*/
+				"password": "",/*iOS应用打包个人证书导入密码*/
+				"p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
+				"devices": "universal",/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/
+				"frameworks": []
+			},
+			"google": {
+				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
+				"keystore": "",/*Android应用打包使用的密钥库文件*/
+				"password": "",/*Android应用打包使用密钥库中证书的密码*/
+				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+				"permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"]
+			},
+			"orientation": ["portrait-primary", "portrait-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"icons": {
+				"ios": {
+					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
+					"auto": "", /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+					"iphone": {
+						"normal": "",/*iPhone普通屏幕程序图标，分辨率：57x57*/
+						"retina": "",/*iPhone高分屏程序图标，分辨率：114x114*/
+						"retina7": "",/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
+						"spotlight-normal": "", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
+						"spotlight-retina": "", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
+						"spotlight-retina7": "",/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "", /*iPhone设置页面程序图标，分辨率：29x29*/
+						"settings-retina": ""
+					},
+					"ipad": {
+						"normal": "", /*iPad普通屏幕程序图标，分辨率：72x72*/
+						"retina": "", /*iPad高分屏程序图标，分辨率：144x144*/
+						"normal7": "", /*iPad iOS7程序图标，分辨率：76x76*/
+						"retina7": "", /*iPad iOS7高分屏程序图标，分辨率：152x152*/
+						"spotlight-normal": "", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+						"spotlight-retina": "", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+						"spotlight-normal7": "",/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+						"spotlight-retina7": "",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "",/*iPad设置页面程序图标，分辨率：29x29*/
+						"settings-retina": ""
+					}
+				},
+				"android": {
+					"mdpi": "", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": ""
+				}
+			},
+			"splashscreen": {
+				"ios": {
+					"iphone": {
+						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
+						"retina35": "",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						"retina40": ""
+					},
+					"ipad": {
+						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
+						"portrait-retina": "",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+						"landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
+						"landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
+						"portrait7": "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+						"portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+						"landscape-retina7": ""
+					}
+				},
+				"android": {
+					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
+					"hdpi": "", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": ""
+				}
+			}
+		}
+	},
+	"dependencies": {
+		"pages": {
+			"shop.html": {
+				"resources": [],
+				"refer": [
+					"xshd.html",
+					"spxq.html",
+					"news.html",
+					"grzx.html",
+					"ssy.html",
+					"cplist.html"
+				],
+				"priority": 0
+			},
+			"xshd.html": {
+				"resources": [],
+				"refer": [
+					"spxq.html",
+					"shop.html"
+				],
+				"priority": 0
+			},
+			"spxq.html": {
+				"resources": [],
+				"refer": [
+					"xshd.html",
+					"user.html",
+					"qrdd.html",
+					"shop.html",
+					"cplist.html"
+				],
+				"priority": 0
+			},
+			"user.html": {
+				"resources": [],
+				"refer": [
+					"spxq.html"
+				],
+				"priority": 0
+			},
+			"qrdd.html": {
+				"resources": [],
+				"refer": [
+					"spxq.html",
+					"login.html",
+					"contacter.html"
+				],
+				"priority": 0
+			},
+			"zcnews.html": {
+				"resources": [],
+				"refer": [
+					"news.html"
+				],
+				"priority": 0
+			},
+			"news.html": {
+				"resources": [],
+				"refer": [
+					"zcnews.html",
+					"shop.html",
+					"jynews.html",
+					"srnews.html",
+					"xtnews.html",
+					"newsList.html"
+				],
+				"priority": 0
+			},
+			"grzx.html": {
+				"resources": [],
+				"refer": [
+					"cz.html",
+					"dfk.html",
+					"dsy.html",
+					"dpj.html",
+					"team.html",
+					"lszd.html",
+					"fxjl.html",
+					"yqm.html",
+					"sm.html",
+					"news.html",
+					"grxx.html",
+					"login.html",
+					"userInfo.html",
+					"shop.html",
+					"yyfw.html",
+					"ljzc.html"
+				],
+				"priority": 0
+			},
+			"cz.html": {
+				"resources": [],
+				"refer": [
+					"login.html",
+					"grzx.html"
+				],
+				"priority": 0
+			},
+			"login.html": {
+				"resources": [],
+				"refer": [
+					"shop.html",
+					"ljzc.html",
+					"index.html"
+				],
+				"priority": 0
+			},
+			"dsy.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html"
+				],
+				"priority": 0
+			},
+			"dfk.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html",
+					"ddxq.html",
+					"login.html"
+				],
+				"priority": 0
+			},
+			"dpj.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html"
+				],
+				"priority": 0
+			},
+			"team.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html"
+				],
+				"priority": 0
+			},
+			"lszd.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html"
+				],
+				"priority": 0
+			},
+			"fxjl.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html"
+				],
+				"priority": 0
+			},
+			"sm.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html"
+				],
+				"priority": 0
+			},
+			"yqm.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html"
+				],
+				"priority": 0
+			},
+			"jynews.html": {
+				"resources": [],
+				"refer": [
+					"news.html"
+				],
+				"priority": 0
+			},
+			"srnews.html": {
+				"resources": [],
+				"refer": [
+					"news.html"
+				],
+				"priority": 0
+			},
+			"ssy.html": {
+				"resources": [],
+				"refer": [
+					"ssList.html"
+				],
+				"priority": 0
+			},
+			"grxx.html": {
+				"resources": [],
+				"refer": [
+					"grxx.html",
+					"grzx.html",
+					"login.html"
+				],
+				"priority": 0
+			},
+			"newsList.html": {
+				"resources": [],
+				"refer": [
+					"newsCont.html"
+				],
+				"priority": 0
+			},
+			"cplist.html": {
+				"resources": [],
+				"refer": [
+					"spxq.html",
+					"shop.html"
+				],
+				"priority": 0
+			},
+			"userInfo.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html",
+					"xgmm.html",
+					"login.html"
+				],
+				"priority": 0
+			},
+			"xgmm.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html",
+					"userInfo.html"
+				],
+				"priority": 0
+			},
+			"contacter.html": {
+				"resources": [],
+				"refer": [
+					"addContact.html",
+					"spxq.html"
+				],
+				"priority": 0
+			},
+			"addContact.html": {
+				"resources": [],
+				"refer": [
+					"contacter.html"
+				],
+				"priority": 0
+			},
+			"yyfw.html": {
+				"resources": [],
+				"refer": [
+					"grzx.html",
+					"yylist.html",
+					"yyxx.html"
+				],
+				"priority": 0
+			},
+			"yylist.html": {
+				"resources": [],
+				"refer": [
+					"yyfw.html",
+					"yyxq.html"
+				],
+				"priority": 0
+			},
+			"yyxx.html": {
+				"resources": [],
+				"refer": [
+					"yy.html",
+					"yyfw.html"
+				],
+				"priority": 0
+			},
+			"yy.html": {
+				"resources": [],
+				"refer": [
+					"yyxx.html",
+					"yyfw.html"
+				],
+				"priority": 0
+			},
+			"yyxq.html": {
+				"resources": [],
+				"refer": [
+					"yylist.html"
+				],
+				"priority": 0
+			},
+			"index.html": {
+				"resources": [
+					"css/style.css"
+				],
+				"refer": [
+					"my.html",
+					"search.html"
+				],
+				"priority": 0
+			},
+			"my.html": {
+				"resources": [],
+				"refer": [
+					"login.html",
+					"myInfo.html",
+					"index.html",
+					"myCol.html",
+					"myOrder.html",
+					"pursellSave.html"
+				],
+				"priority": 0
+			},
+			"myInfo.html": {
+				"resources": [],
+				"refer": [
+					"index.html",
+					"my.html"
+				],
+				"priority": 0
+			},
+			"myCol.html": {
+				"resources": [],
+				"refer": [
+					"goodsInfo.html"
+				],
+				"priority": 0
+			},
+			"search.html": {
+				"resources": [],
+				"refer": [
+					"goodsInfo.html"
+				],
+				"priority": 0
+			},
+			"myOrder.html": {
+				"resources": [],
+				"refer": [
+					"evalOrder.html",
+					"orderInfo.html"
+				],
+				"priority": 0
+			},
+			"pursellSave.html": {
+				"resources": [],
+				"refer": [
+					"inbound.html",
+					"editBound.html",
+					"userManage.html",
+					"inventory.html",
+					"unsold.html",
+					"outBound.html"
+				],
+				"priority": 0
+			},
+			"userManage.html": {
+				"resources": [],
+				"refer": [
+					"addUser.html",
+					"editUser.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"images/dan.png",
+				"images/li.png",
+				"ddxqpj.html",
+				"images/zh.png",
+				"images/tiao.png",
+				"css/wjmm.css",
+				"js/mui.dtpicker.js",
+				"images/10.png",
+				"door.html",
+				"images/wei.png",
+				"images/235002-14012610011839.png",
+				"images/lingdang.png",
+				"css/xgmm.css",
+				"js/mui.poppicker.js",
+				"css/sppj.css",
+				"js/mui.js",
+				"images/wan.png",
+				"css/yyfw.css",
+				"images/nav_back1.png",
+				"css/shop.css",
+				"images/kong.png",
+				"images/hao.png",
+				"css/ddxq.css",
+				"css/spxq.css",
+				"name.html",
+				"fonts/mui.ttf",
+				"images/商品详情.png",
+				"css/grzx.css",
+				"images/选中(2).png",
+				"js/city.data-3.js",
+				"zdxq.html",
+				"images/tjr.png",
+				"images/quan.png",
+				"images/中式足疗.png",
+				"wcdd.html",
+				"images/zhi.png",
+				"css/news.css",
+				"css/mui.dtpicker.css",
+				"css/zhi.css",
+				"css/lszd.css",
+				"images/ssss.png",
+				"images/7.png",
+				"images/SPA(1).png",
+				"images/SPA套餐.png",
+				"images/you.png",
+				"images/zhongshi.png",
+				"images/zhongping.png",
+				"images/haoping.png",
+				"css/yqm.css",
+				"css/ssy.css",
+				"images/cha.png",
+				"js/mui.min.js",
+				"images/5a5d50495836a_1024.png",
+				"images/zu.png",
+				"images/4.png",
+				"images/computer_kuan_274800_m.png",
+				"images/zhong.png",
+				"images/ping.png",
+				"images/足疗套餐.png",
+				"images/椭圆1.png",
+				"images/t0152b505d83d1ad5e4.png",
+				"images/dian.png",
+				"images/user.png",
+				"css/login.css",
+				"images/fan.png",
+				"css/grxx.css",
+				"images/未选中圆点.png",
+				"images/2.png",
+				"images/支付宝支付.png",
+				"images/xue.png",
+				"images/1.png",
+				"images/sousuo.png",
+				"images/01d2f356970ae332f87574beb0c88b.png",
+				"css/mui.min.css",
+				"images/chaping.png",
+				"images/erweima.png",
+				"images/jiantou.png",
+				"images/jiaoyi.png",
+				"css/word.css",
+				"js/mui.picker.min.js",
+				"images/8489275.png",
+				"images/shouru.png",
+				"wjmm.html",
+				"images/未选中1.png",
+				"images/fen.png",
+				"images/mm.png",
+				"images/传统足疗.png",
+				"images/3.png",
+				"images/分类.png",
+				"images/laba.png",
+				"images/spinner.png",
+				"images/20151023195541646.png",
+				"js/jquery-3.2.1.min.js",
+				"css/mui.picker.min.css",
+				"images/xiao.png",
+				"css/wcdd.css",
+				"images/9.png",
+				"js/mui.picker.js",
+				"images/kuan.png",
+				"css/xshd.css",
+				"css/user.css",
+				"images/20131211091752-393669037.png",
+				"css/mui.css",
+				"css/fxjl.css",
+				"js/payfor.js",
+				"images/pai.png",
+				"images/t011e66b2e08ea78eb0.png",
+				"css/my.css",
+				"css/jquery.spinner.css",
+				"images/yzm.png",
+				"js/script.js",
+				"css/spfl.css",
+				"css/name.css",
+				"images/组8.png",
+				"images/tou.png",
+				"css/cplist.css",
+				"images/5395522b04379.png",
+				"images/6.png",
+				"images/c22f1797a3c9492fa876dffe50bca1b8_th.png",
+				"images/xiala.png",
+				"images/huiyuan.png",
+				"images/login.png",
+				"css/qrdd.css",
+				"images/微信.png",
+				"images/1431075084451.png",
+				"images/颈肩调理.png",
+				"css/cz.css",
+				"word.html",
+				"images/news.png",
+				"images/jia.png",
+				"images/ding.png",
+				"images/our.png",
+				"css/yyxq.css",
+				"sppj.html",
+				"images/yong.png",
+				"css/yylist.css",
+				"images/头部保健.png",
+				"images/yu.png",
+				"spfl.html",
+				"css/mui.poppicker.css",
+				"images/pen.png",
+				"images/选中(1).png",
+				"images/xiang.png",
+				"images/钱包.png",
+				"images/ku.png",
+				"css/yyxx.css",
+				"css/xtnews.css",
+				"ddxqsy.html",
+				"images/ji.png",
+				"images/2012051115553195503.png",
+				"images/banner.png",
+				"css/mui.picker.css",
+				"css/ljzc.css",
+				"js/base.js",
+				"images/LOGO.png",
+				"images/图1.png",
+				"css/door.css",
+				"images/jingluo.png",
+				"css/dfk.css",
+				"css/team.css",
+				"images/jian.png"
+			]
+		}
+	}
+}

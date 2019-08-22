@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title></title>
+	    <script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+		<script src="publick/js/mui.js"></script>
+		<script src="js/common.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var code=$.getUrlParam('code');
+				var param={'code':code};
+				$.ajax({  
+			        dataType:"json",
+			        type:"post",  
+			        url:Url+'/api/public/getopenid',//接口服务器地址  
+			        data:{'code':code},//请求数据
+			        success:function(data){
+						if(data.code==200){
+							var param1={'token':token,'openid':data.data.openid};
+							postData('/api/public/setopenid',param1,function(data1){
+								if(data1.code==200){
+									location.href='home.html';
+								}else{
+									mui.toast(data.message);
+								}
+							});
+						}else{
+							mui.toast(data.message);
+							localStorage.removeItem('token_lube');
+							location.href="login.html";
+						}
+					},
+					error:function(e){
+			        	mui.toast('授权失败');
+			        	localStorage.removeItem('token_lube');
+						location.href="login.html";
+			        }
+				});
+			});
+		</script>
+	</body>
+</html>

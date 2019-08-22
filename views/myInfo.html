@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>个人资料</title>
+    <script src="publick/js/responsive.js"></script>
+    <link href="publick/css/mui.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+	#photo1{
+		display: none;
+	}
+</style>
+<body>
+	<header class="mui-bar header idxHeader">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title head-title">个人资料</h1>
+	</header>
+	<div class="mui-content container" id="vmObj" v-cloak>
+		<form enctype="multipart/form-data">
+	    <ul class="mui-table-view myInfo">
+		    <li class="mui-table-view-cell mui-media" id="div1">头像
+		    	<img src="images/headImg.png" alt="" id="avatar" tapmode v-if="!userInfors.avatar" @tap="changeImg"/>
+		    	<img :src="userInfors.avatar" alt="" id="avatar" tapmode v-else @tap="changeImg"/>
+		    	<input type="file" name="user.photo" onchange="setImage(this,div1,avatar);" id="photo1">
+		        <span class="mui-navigate-right myArrow"></span>
+		    </li>
+		</ul>
+		</form>
+		<ul class="mui-table-view myList myInfo myInfol">
+		    <li class="mui-table-view-cell mui-media">昵称
+		        <span class="mui-pull-right">{{userInfors.user_nickname}}</span>
+		    </li>
+		    <li class="mui-table-view-cell mui-media" @tap="resetPsd">修改密码
+		        <span class="mui-navigate-right myArrow"></span>
+		    </li>
+			<li class="mui-table-view-cell mui-media">手机号
+				<span class="mui-pull-right">{{userInfors.user_nickname}}</span>
+			</li>
+			<li class="mui-table-view-cell mui-media" @tap="updateInfoBrand">汽车品牌
+				<span class="mui-pull-right">{{userInfors.brand}}</span>
+			</li>
+			<li class="mui-table-view-cell mui-media" @tap="updateInfoType">车型
+				<span class="mui-pull-right">{{userInfors.type}}</span>
+			</li>
+			<li class="mui-table-view-cell mui-media" @tap="updateInfoDisplacement">排量
+				<span class="mui-pull-right">{{userInfors.displacement}}</span>
+			</li>
+			<li class="mui-table-view-cell mui-media" @tap="updateInfoDate">购买日期
+				<span class="mui-pull-right">{{userInfors.purchase_date}}</span>
+			</li>
+		</ul>
+		<div class="logout" @tap="logout">退出登录</div>
+	</div>
+	<script src="publick/js/jquery-3.1.0.min.js"></script>
+	<script src="publick/js/vue.min.js"></script>
+    <script src="publick/js/mui.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/myInfo.js?v=1.0"></script>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</body>
+</html>

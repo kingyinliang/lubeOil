@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>申请退款</title>
+		<script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<!--<link href="css/iconfont.css" rel="stylesheet" />-->
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<header class="mui-bar header idxHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title head-title">申请退款</h1>
+		</header>
+		<div class="mui-content" id="vmObj" v-cloak>
+			<ul class="orderList">
+				<li>
+					<div class="orderTop">
+						<span class="mui-pull-right">已收货</span>
+						<s v-if="orderInfos.send_type==1">邮寄店铺：{{orderInfos.shop_name}}</s>
+	    				<s v-else>自提店铺：{{orderInfos.shop_name}}</s>
+					</div>
+					<div class="orderMid">
+						<div class="orderBan">
+							<img :src="orderInfos.order_goods[0].goods_img"/>
+						</div>
+						<div class="shopInfo mui-ellipsis">
+							<p class="p1">{{orderInfos.order_goods[0].goods_name}}</p>
+							<p class="p2">型号/规格：{{orderInfos.order_goods[0].spec1_info}}{{orderInfos.order_goods[0].spec2_info}}</p>
+							<p class="p2">订单时间：{{orderInfos.ordertime}}</p>
+						</div>
+						<div class="orderNum">x{{orderInfos.order_goods[0].num}}</div>
+					</div>
+					<div class="orderMid_b">
+						<div>共{{orderInfos.order_goods[0].num}}件商品  总计：<p><span>¥</span>{{orderInfos.order_amount}}</p>（含运费：¥{{orderInfos.delivery_fee}}）</div>
+					</div>
+				</li>
+			</ul>
+			<div class="sendWay rfdWay">
+				<ul>
+					<li class="mui-radio mui-left">
+						<input name="radio" type="radio" value="1" v-model="refundWay">退货退款
+					</li>
+					<li class="mui-radio mui-left">
+						<input name="radio" type="radio" value="0" v-model="refundWay">仅退款
+					</li>
+				</ul>
+			</div>
+			<div class="rfdReason">
+				<span>退款原因：</span>
+				<div class="reasonCont">
+					<input type="text" placeholder="请选择" readonly class="mui-ellipsis" v-model="reasonName" @tap="getReason" />
+					<img src="images/arrowDown.png"/>
+					<ul class="reasonList">
+						<li v-for="(reasonList,index) in reasonLists" @tap.stop="selReason(index)">{{reasonList.reason}}</li>
+					</ul>
+				</div>
+			</div>
+			<div class="rfdReason">
+				<span>退款说明：</span>
+				<div><textarea v-model="rfdDesc"></textarea></div>
+			</div>
+			<div class="clearfix">
+				<div class="rfdBtn" @tap="rfdBtn">提交申请</div>
+			</div>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+	    <script src="publick/js/mui.min.js"></script>
+	    <script src="js/common.js"></script>
+    	<script src="js/refund.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title>分类页</title>
+	    <!--<script type="text/javascript" src="publick/js/responsive.js"></script>-->
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<link href="css/spfl.css" rel="stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="css/my.css">
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+	<style type="text/css">
+		.mui-search .mui-placeholder .mui-icon{
+			color: #fff;
+		}
+		#pullrefresh{
+			top: 20px;
+		}
+	</style>
+	<body>
+		<header class="mui-bar header idxHeader">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title head-title">分类</h1>
+		</header>
+		<div class="mui-content container" id="vmObj" v-cloak>
+			<div class="lib_Menubox_sx">
+				<ul>
+				   	<li id="one1" :class="{hover:idx==index}" class="mui-ellipsis-2" v-for="(classifyList,index) in classifyLists" @tap="classified(index)">
+						{{classifyList.name}}
+				   	</li>
+				</ul>
+			</div>
+			<div class="lib_Contentbox_sx ">  
+			   	<div id="con_one_1" >
+				    	<div id="pullrefresh" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+				    <div class="mui-row">
+				        <div class="mui-col-xs-6 cpList" v-for="(goodsList,index) in goodsLists" @tap="proCont(index)">
+				        	<a>
+				        		<img :src="goodsList.goods_img">
+					            <p class="mui-ellipsis">{{goodsList.goods_name}}</p>
+				        	</a>
+				        </div>
+				        </div>
+				    	</div>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+		<script src="publick/js/mui.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/classify.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+</html>

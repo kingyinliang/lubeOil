@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>确认订单</title>
+<script type="text/javascript" src="publick/js/responsive.js"></script>
+<link rel="stylesheet" type="text/css" href="publick/css/mui.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/qrdd.css">-->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<style type="text/css">
+	.mui-content{
+		background: #F9F9F9;
+		padding-bottom: 0.98rem;
+	}
+</style>
+<body>
+    <!-- 导航栏 -->
+    <header class="mui-bar header idxHeader">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title head-title">确认订单</h1>
+	</header>
+	<div id="vmObj" class="mui-content" v-cloak>
+    	<div class="orderAds">
+    		<img src="images/orderAds.png"/>
+    		<div @tap="toAds" v-if="orderAds">
+    			<p><span>收货人：{{orderAds.consignee}}</span><span>电话：{{orderAds.mobile}}</span></p>
+    			<div class="adsName">
+    				{{orderAds.province_text}}-{{orderAds.city_text}}-{{orderAds.area_text}} {{orderAds.address}}
+    			</div>
+    		</div>
+    		<div @tap="toAds" v-else>您还未添加收货地址，点击添加收货地址</div>
+    		<span class="mui-navigate-right arrowRoate" style="font-size: 0.5rem;"></span>
+    	</div>
+    	<div class="orderInfo">
+	    	<div class="storeDiv" v-if="sendWay==2"><img src="images/store.png"/>自提店铺：{{shopName}}</div>
+	    	<div class="colCont orderGood">
+				<div class="carBan">
+					<img :src="productInfos.goods_img">
+				</div>
+				<div class="colCar">
+					<p class="mui-ellipsis p1">{{productInfos.goods_name}}</p>
+					<p class="p2" v-if="!productInfos.spec_name1">{{specName}}</p>
+					<p class="p2" v-else-if="!productInfos.spec_name2">{{productInfos.spec_name1}}：{{specName}}</p>
+					<p class="p2" v-else>{{productInfos.spec_name1}}/{{productInfos.spec_name2}}：{{specName}}</p>
+					<p class="p3">¥{{specPrice}}<span>x{{proNum}}</span></p>
+				</div>
+			</div>
+			<div class="orderPhone">商品数量<span>{{proNum}}件</span></div>
+			<div class="sendWay">
+				<p>配送方式：</p>
+				<ul>
+					<li class="mui-radio mui-right">
+						邮寄<input name="radio" type="radio" value="1" v-model="sendWay">
+					</li>
+					<li class="mui-radio mui-right" @tap="toShop">
+						到店自提<input name="radio" type="radio" value="2" v-model="sendWay">
+					</li>
+				</ul>
+			</div>
+			<div class="orderPhone" v-if="isServ==1">服务费<span>￥{{productInfos.service_price}}</span></div>
+			<div class="orderPhone" v-if="isPart==1">配件费<span>￥{{productInfos.peijian_price}}</span></div>
+			<div class="orderPhone">店铺电话<span>{{productInfos.shop_mobile}}</span></div>
+			<div class="orderPhone" @tap="toMyCoup" v-if="!coupPrice">优惠券<span></span></div>
+			<div class="orderPhone" @tap="toMyCoup" v-else>优惠券<span>-￥{{coupPrice}}</span></div>
+			<div class="orderPhone">总计<span>￥{{amount}}</span></div>
+		</div>
+		<div class="remark">备注：
+			<textarea placeholder="给卖家留言"></textarea>
+		</div>
+    	<div class="cfmBot">
+    		<div class="orderAmount">
+    			<p>实付金额:<span>￥{{lastPrice}}</span></p>
+    			<p>（含运费：￥{{productInfos.freight}}）</p>
+    		</div>
+    		<div class="orderBtn" @tap="subOrder">提交订单</div>
+    	</div>
+    </div>
+<!-- js插件 -->
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="publick/js/jquery-3.1.0.min.js"></script>
+<script src="publick/js/vue.min.js"></script>
+<script src="publick/js/mui.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cfmOrder.js?v=2.1"></script>
+<script type="text/javascript">
+	mui.init();
+</script>
+</body>
+</html>

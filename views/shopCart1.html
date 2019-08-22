@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title>购物车页</title>
+	    <script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+	<style type="text/css">
+		#pullrefresh{
+			top:44px;
+			background: #fff;
+			/*margin-top: 0.82rem;*/
+		}
+		.headTxt{
+			display: inline-block;
+		}
+		.headTxt img{
+			width: 0.4rem;
+			height: 0.4rem;
+			margin: 0;
+		}
+	</style>
+	<body>
+		<header class="mui-bar header">
+		    <h1 class="mui-title head-title">购物车</h1>
+		    <a class="mui-icon mui-pull-right headTxt"><img src="images/cartDel.png"/></a>
+		</header>
+		<div class="mui-content container" id="vmObj" v-cloak>
+			<div v-if="!isLogin">
+				<div class="saleRlt">
+					<img src="images/unshop.png"/>
+					<p>还未登录，快去登录吧~</p>
+				</div>
+				<div class="saleBtn" @tap="toLogin">去登录</div>
+			</div>
+			<div v-else-if="shopLists.length==0">
+				<div class="saleRlt">
+					<img src="images/unshop.png"/>
+					<p>购物车暂无商品</p>
+				</div>
+				<div class="saleBtn" @tap="toShop">去逛逛</div>
+			</div>
+			<!--<div id="pullrefresh" class="mui-scroll-wrapper" v-else>
+			<div class="mui-scroll"> v-for="(shopList,index) in shopLists" @tap="newsInfo(index)"-->
+			<div v-else>
+				<ul class="cartList">
+					<li v-for="(shopList,index) in shopLists" @tap="shopInfo(index)">
+						<div class="cartBan">
+							<img :src="shopList.goods_img"/>
+						</div>
+						<div class="shopInfo mui-ellipsis">
+							<p class="p1 mui-ellipsis">{{shopList.goods_name}}</p>
+							<p class="p2 mui-ellipsis">{{shopList.list[0].spec1}}{{shopList.list[0].spec2}}</p>
+							<p class="p3"><span>￥</span>{{shopList.pPrice}}</p><!--<span>.00</span>-->
+						</div>
+						<div class="mui-checkbox regRule shopSel">
+							<div @tap.stop="selBtn(index)">
+								<input name="checkbox" type="checkbox" class="" />
+							</div>
+							<div class="shopNum">
+								<img src="images/jian_s.png" @tap.stop="reduce(index)"/>{{shopList.list[0].num}}
+								<img src="images/jia_s.png" @tap.stop="add(index)"/>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="shopFee">
+					<p>合计：<span>￥</span><span>{{totalAmount}}</span></p><!--<span>.00</span>-->
+				</div>
+				<div class="shopOpt">
+					<div class="shopCal" @tap="settlement">结算</div>
+					<div class="mui-checkbox regRule shopSel shopSel_all" @tap="selectAll">全选
+						<input type="checkbox" />
+					</div>
+				</div>
+			</div>
+			<!--</div>
+			</div>-->
+		</div>
+		<nav class="mui-bar mui-bar-tab footer">
+		    <a class="mui-tab-item" href="index.html">
+		        <img class="a1" src="images/nav_home.png" alt="" />
+		        <span class="mui-tab-label">首页</span>
+		    </a>
+		    <a class="mui-tab-item mui-active" href="shopCart.html">
+		        <img class="a2" src="images/nav_shoped.png" alt="" />
+		        <span class="mui-tab-label">购物车</span>
+		    </a>
+		    <a class="mui-tab-item" href="my.html">
+		        <img class="a3" src="images/nav_my.png" alt="" />
+		        <span class="mui-tab-label">我的</span>
+		    </a>
+		</nav>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+		<script src="publick/js/mui.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/shopCart.js?v=1.8"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,95 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+body{
+	background-color: #F4F4F4 !important;
+}
+/*导航栏*/
+header{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background-color: #fff;
+	text-align: center;
+   	position: fixed;
+   	top: 0;
+   	z-index: 5;
+}
+header>ul{
+	text-align: center;
+}
+header a{
+	margin-left: 15px;
+    width: 25px;
+    float: left;
+    
+    z-index: 50;
+}
+header img{
+	margin-top: 11px;
+	width: 15px;
+}
+header span{
+	line-height: 50px;
+	color: #2b2b2b;
+	font-size: 1.2rem;
+	margin-left: -35px;
+}
+/*选项卡*/
+ul,li{list-style:none;}
+.wrap{
+	width:100%; 
+	
+}
+.hide{display:none;}
+#tab_t{
+	border-bottom:1px solid #ccc;
+	width: 100%;}
+#tab_t li{
+	float:left; 
+	width:50%; 
+	height:40px; 
+	line-height:40px;
+	text-align:center; 
+	background:#DDDDDD; 
+	cursor:pointer;
+	font-size: 1rem;
+}
+#tab_t .act{ 
+	position:relative; 
+	height:40px;
+	color: red;
+	font-size: 1rem;
+}
+#tab_c li{
+	list-style: none;
+	padding: 10px 5%;
+}
+#tab_c{
+	width: 100%;
+	background-color: #fff;
+}
+#tab_c li>img{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+#tab_c li>span{
+	/*position: relative;
+	top: -12px;*/
+	font-size: 0.9rem;
+	color: #676767;
+}
+#tab_c li>span:nth-child(3){
+	float: right;
+	vertical-align: middle;
+}
+hr{
+	background-color: #EBEBEB;
+    height: 1px !important;
+    border: none;
+}

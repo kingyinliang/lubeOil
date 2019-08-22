@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>汽修厂</title>
+		<script type="text/javascript" src="publick/js/responsive.js"></script>
+		<link href="publick/css/mui.min.css" rel="stylesheet" />
+		<!--<link href="css/iconfont.css" rel="stylesheet" />-->
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<header class="mui-bar header idxHeader">
+		    <a class="mui-icon mui-icon-left-nav mui-pull-left back"></a>
+		    <h1 class="mui-title head-title">汽修厂</h1>
+		</header>
+		<div class="mui-content" id="vmObj" v-cloak>
+			<ul class="shopList">
+				<li v-for="(shopList,index) in shopLists" @tap="toOrder(index)">
+					<img src="images/shopIcon.png" alt="" />
+					<div class="">
+						<p>{{shopList.user_nickname}}</p>
+						<p>{{shopList.adress}}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="publick/js/jquery-3.1.0.min.js"></script>
+		<script src="publick/js/vue.min.js"></script>
+	    <script src="publick/js/mui.min.js"></script>
+	    <script src="js/common.js"></script>
+    	<script src="js/shopList.js?v=1.2"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

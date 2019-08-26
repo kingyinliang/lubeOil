@@ -36,7 +36,7 @@ var vm=new Vue({
 		getList:function(){
 			var self=this;
 		    var param={'token':token,'page':self.page,'month':self.selCont};
-			postData('/api/inventorygoods/noSalelist',param,function(res){
+			postData('/api/Inventoryorder/unsalable_list',param,function(res){
                 if(res.code==200){
                     if(res.data.total==0){
                         mui.toast('暂无商品');

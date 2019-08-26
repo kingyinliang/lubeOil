@@ -40,14 +40,19 @@
 					</div>
 				</li>
 			</ul>
-			<ul class="couponList" v-else>
+			<ul class="carCoup" v-else>
 				<li v-for="(cursonList,index) in cursonLists" @tap="useCoupon(index)">
-					<div class="couLeft">
-						<p>{{cursonList.name}}</p>
+					<div class="bg">
+						<div class="couLeft">
+							<p>{{cursonList.name}}</p>
+						</div>
+						<div class="couRight">
+							<div>编码：<br />{{cursonList.code}}</div>
+							<p>{{cursonList.couTime}}</p>
+						</div>
 					</div>
-					<div class="couRight">
-						<div>编码：<br />{{cursonList.code}}</div>
-						<p>{{cursonList.couTime}}</p>
+					<div class="shopName">
+						<p v-for="(item,index) in cursonList.shop_name">{{item}}</p>
 					</div>
 				</li>
 			</ul>

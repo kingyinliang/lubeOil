@@ -5,7 +5,8 @@ var vm=new Vue({
 		withMoney:'',
 		cardNum:'',
 		realName:'',
-		cardName:''
+		cardName:'',
+        withType: true
 	},
 	created:function(){
 		var self=this;
@@ -25,7 +26,11 @@ var vm=new Vue({
 		},
 		withdraw:function(){
 			var self=this;
-			if (self.withInfo.balance*1<self.withMoney*1) {
+            if (!self.withType) {
+                mui.toast('请勾选微信提现');
+                return false
+            }
+            if (self.withInfo.balance*1<self.withMoney*1) {
                 mui.toast('请输入正确金额');
 				return false
 			}

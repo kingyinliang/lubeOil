@@ -81,6 +81,15 @@ var vm=new Vue({
 			  	} 
 			});
 		},
+        updatePhone: function (e) {
+            mui.openWindow({
+                url:'undatePhone.html',
+                id:'undatePhone',
+                extras:{
+                    psdType:0
+                }
+            });
+        },
         updateInfoBrand: function (e) {
             var self=this;
             e.detail.gesture.preventDefault();

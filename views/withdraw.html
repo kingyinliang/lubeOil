@@ -37,8 +37,13 @@
         		<input type="number" placeholder="输入提现金额" v-model="withMoney" />
 			</li>
 		</ul>
-		<!--<p class="withTip">提现到：</p>-->
-        <!--<ul class="withDlist">-->
+		<p class="withTip">提现到：</p>
+        <ul class="withDlist">
+			<li class="mui-table-view-cell mui-checkbox">
+				<span>微信</span>
+				<input name="checkbox1" value="Item 1" type="checkbox" checked v-model="withType">
+				<!--<input type="number" placeholder="输入银行卡号" v-model="cardNum" />-->
+			</li>
         	<!--<li class="mui-table-view-cell">-->
         		<!--<span>银行卡</span>-->
         		<!--<input type="number" placeholder="输入银行卡号" v-model="cardNum" />-->
@@ -51,7 +56,7 @@
         		<!--<span>姓名</span>-->
         		<!--<input type="text" placeholder="请输入姓名" v-model="realName" />-->
         	<!--</li>-->
-        <!--</ul>-->
+        </ul>
 		<div class="withBtn" @tap="withdraw">立即提现</div>
 	</div>
 	<script src="publick/js/jquery-3.1.0.min.js"></script>

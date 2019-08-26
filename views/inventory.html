@@ -13,51 +13,114 @@
 			.mui-content{
 				background: none;
 			}
-			#pullrefresh{
-				/*top:0.88rem;*/
-				overflow-y: auto;
-				margin-top: 0.88rem;
-				min-height: 5rem;
-			}
+			/*#pullrefresh{*/
+				/*!*top:0.88rem;*!*/
+				/*overflow-y: auto;*/
+				/*margin-top: 0.88rem;*/
+				/*min-height: 5rem;*/
+			/*}*/
 		</style>
 	<body>
-		<header class="mui-bar mui-bar-nav whiteHeader">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">库存</h1>
-		</header>
-		<div class="mui-content" id="vmObj" v-cloak>
-			<div class="invtSerch">
-		        <img src="images/sousuo.png"/>
-		        <input type="text" placeholder="请输入商品名称" v-model="serCont" />
-		    </div>
-		    <ul class="invtNum">
-	        	<li><p>库存量</p><p>{{pursellData.total_stock}}</p></li>
-	        	<li><p>库存成本</p><p>{{pursellData.total_cost}}</p></li>
-	        	<li><p>库存预警</p><p>{{pursellData.total_warning}}</p></li>
-	        </ul>
-		    <div class="serCont_s">
-		    	<ul class="filteTab purTab invtTab">
-					<li class="active" @tap="dft">默认</li>
-					<li @tap="saleNum">销售量</li>
-					<li @tap="saleAmount">销售额</li>
-				</ul>
-			    <div id="pullrefresh" class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<ul class="goodsList clearfix">
-							<li v-for="(goodsList,index) in pursellLists" @tap="editBound(index)">
-								<img :src="goodsList.goods_img" v-if="goodsList.goods_img">
+	<!--新库存-->
+	<header class="mui-bar header idxHeader">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title head-title">库存</h1>
+	</header>
+	<div class="mui-content" id="vmObj" v-cloak>
+		<div>
+			<div id="pullrefresh" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="inOutSaved">
+						<li v-for="(list,index) in dataLists">
+							<p class="inOutSaved_headText">时间：{{list.add_time}}</p>
+							<div class="inOutSaved_item">
+								<img :src="list.goods_img" v-if="list.goods_img">
 								<img src="images/logo.png" v-else>
-								<div class='rcmDesc'>
-									<p class="mui-ellipsis p1">{{goodsList.goods_name}}</p>
-									<p class="p2">型号/规格：{{goodsList.spec}}/{{goodsList.spec}}</p>
-									<p class="p3">￥{{goodsList.cost_price}}</p>
+								<div class="inOutSaved_item_text">
+									<p class="inOutSaved_item_text_head">{{list.goods_name}}</p>
+									<p class="inOutSaved_item_text_item">型号/规格：{{list.spec_name1}}/{{list.spec_name2}}</p>
+									<p class="inOutSaved_item_text_item"><span class="inOutSaved_item_text_item_in">库存：{{list.stock}} </span><span class="inOutSaved_item_text_item_unitprice">单价：{{list.price}}</span><span class="inOutSaved_item_text_item_totalprice">总价：<i>{{list.total_price}}</i></span></p>
 								</div>
-							</li>
-						</ul>
-					</div>
+							</div>
+						</li>
+					</ul>
 				</div>
-		    </div>
+			</div>
 		</div>
+		<!--<div class="outTop">-->
+		<!--<span>{{selCont}}个月未出库</span>-->
+		<!--<select name="" v-model="selCont" @change="selType">-->
+		<!--<option value="1">1个月</option>-->
+		<!--<option value="2">2个月</option>-->
+		<!--<option value="3">3个月</option>-->
+		<!--<option value="4">4个月</option>-->
+		<!--<option value="5">5个月</option>-->
+		<!--<option value="6">6个月</option>-->
+		<!--<option value="7">7个月</option>-->
+		<!--<option value="8">8个月</option>-->
+		<!--<option value="9">9个月</option>-->
+		<!--<option value="10">10个月</option>-->
+		<!--<option value="11">11个月</option>-->
+		<!--<option value="12">12个月</option>-->
+		<!--</select>-->
+		<!--<img src="images/jiantou.png" class="arrowDown"/>-->
+		<!--</div>-->
+		<!--<div class="serCont_s">-->
+		<!--<div id="pullrefresh" class="mui-scroll-wrapper">-->
+		<!--<div class="mui-scroll">-->
+		<!--<ul class="goodsList clearfix">-->
+		<!--<li v-for="(unsoldList,index) in unsoldLists" @tap="editBound(index)">-->
+		<!--<img :src="unsoldList.goods_img" v-if="unsoldList.goods_img">-->
+		<!--<img src="images/logo.png" v-else>-->
+		<!--<div class='rcmDesc'>-->
+		<!--<p class="mui-ellipsis p1">{{unsoldList.goods_name}}</p>-->
+		<!--<p class="p2">型号/规格：{{unsoldList.spec}}/{{unsoldList.spec}}</p>-->
+		<!--<p class="p3">￥{{unsoldList.cost_price}}</p>-->
+		<!--</div>-->
+		<!--</li>-->
+		<!--</ul>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--</div>-->
+	</div>
+	<!--新库存-->
+		<!--<header class="mui-bar mui-bar-nav whiteHeader">-->
+		    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+		    <!--<h1 class="mui-title">库存</h1>-->
+		<!--</header>-->
+		<!--<div class="mui-content" id="vmObj" v-cloak>-->
+			<!--<div class="invtSerch">-->
+		        <!--<img src="images/sousuo.png"/>-->
+		        <!--<input type="text" placeholder="请输入商品名称" v-model="serCont" />-->
+		    <!--</div>-->
+		    <!--<ul class="invtNum">-->
+	        	<!--<li><p>库存量</p><p>{{pursellData.total_stock}}</p></li>-->
+	        	<!--<li><p>库存成本</p><p>{{pursellData.total_cost}}</p></li>-->
+	        	<!--<li><p>库存预警</p><p>{{pursellData.total_warning}}</p></li>-->
+	        <!--</ul>-->
+		    <!--<div class="serCont_s">-->
+		    	<!--<ul class="filteTab purTab invtTab">-->
+					<!--<li class="active" @tap="dft">默认</li>-->
+					<!--<li @tap="saleNum">销售量</li>-->
+					<!--<li @tap="saleAmount">销售额</li>-->
+				<!--</ul>-->
+			    <!--<div id="pullrefresh" class="mui-scroll-wrapper">-->
+					<!--<div class="mui-scroll">-->
+						<!--<ul class="goodsList clearfix">-->
+							<!--<li v-for="(goodsList,index) in pursellLists" @tap="editBound(index)">-->
+								<!--<img :src="goodsList.goods_img" v-if="goodsList.goods_img">-->
+								<!--<img src="images/logo.png" v-else>-->
+								<!--<div class='rcmDesc'>-->
+									<!--<p class="mui-ellipsis p1">{{goodsList.goods_name}}</p>-->
+									<!--<p class="p2">型号/规格：{{goodsList.spec}}/{{goodsList.spec}}</p>-->
+									<!--<p class="p3">￥{{goodsList.cost_price}}</p>-->
+								<!--</div>-->
+							<!--</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</div>-->
+		    <!--</div>-->
+		<!--</div>-->
 		<script src="publick/js/jquery-3.1.0.min.js"></script>
 		<script src="publick/js/vue.min.js"></script>
 	    <script src="publick/js/mui.min.js"></script>

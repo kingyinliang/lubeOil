@@ -36,8 +36,9 @@
 		    <li class="mui-table-view-cell mui-media" @tap="resetPsd">修改密码
 		        <span class="mui-navigate-right myArrow"></span>
 		    </li>
-			<li class="mui-table-view-cell mui-media">手机号
-				<span class="mui-pull-right">{{userInfors.user_nickname}}</span>
+			<li class="mui-table-view-cell mui-media" @tap="updatePhone">手机号
+				<span class="mui-pull-right" style="margin-right: 0.6rem;">{{userInfors.user_nickname}}</span>
+				<span class="mui-navigate-right myArrow"></span>
 			</li>
 			<li class="mui-table-view-cell mui-media" @tap="updateInfoBrand">汽车品牌
 				<span class="mui-pull-right">{{userInfors.brand}}</span>

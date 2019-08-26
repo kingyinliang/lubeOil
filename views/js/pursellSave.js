@@ -24,7 +24,7 @@ var vm=new Vue({
 				}
 			}
       	});
-	 	self.getList();
+	 	// self.getList();
 	},
 	methods:{
 		getList:function(){
@@ -64,6 +64,14 @@ var vm=new Vue({
 		            //mui.toast(e.status+','+ e.statusText);
 		        }  
 		  	});
+		},
+		goCheck: function () {
+            mui.openWindow({
+                url:'checkBound.html',
+                id:'checkBound',
+                extras:{
+                }
+            });
 		},
 		inbound:function(){
            	nextPage('inbound.html');

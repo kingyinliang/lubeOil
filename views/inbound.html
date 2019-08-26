@@ -1,99 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>入库</title>
-    <script src="publick/js/responsive.js"></script>
-    <link href="publick/css/mui.min.css" rel="stylesheet"/>
-    <link href="publick/css/mui.picker.min.css" rel="stylesheet" />
-	<link href="publick/css/mui.poppicker.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>入库</title>
+	<script type="text/javascript" src="publick/js/responsive.js"></script>
+	<link href="publick/css/mui.min.css" rel="stylesheet"/>
+	<!--<link href="publick/css/mui.picker.min.css" rel="stylesheet" />-->
+	<link href="css/style.css" rel="stylesheet"/>
 </head>
 <style type="text/css">
 	.mui-content{
 		background: none;
 	}
-	#photo1{
-		display: none;
+	#pullrefresh{
+		top:0.88rem;
+		background: #f3f3f3;
 	}
 </style>
 <body>
-	<div id="vmObj" v-cloak>
-	<header class="mui-bar mui-bar-nav whiteHeader">
-	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-	    <h1 class="mui-title">入库</h1>
-	    <a class="mui-icon mui-pull-right headTxt" @tap="cfmInbound">完成</a>
-	</header>
-	<div class="mui-content">
-		<div class="inBan">
-			<form enctype="multipart/form-data">
-			<div id="div1">
-			<img src="images/inImg.png" alt="" id="avatar" tapmode @tap="getImg" v-if="!imgUrl" />
-			<img :src="imgUrl" alt="" id="avatar" tapmode @tap="getImg" v-else />
-			<input type="file" name="user.photo" onchange="setImage(this,div1,avatar);" id="photo1">
+<header class="mui-bar header idxHeader">
+	<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	<h1 class="mui-title head-title">入库</h1>
+</header>
+<div class="mui-content" id="vmObj" v-cloak>
+	<div>
+		<div id="pullrefresh" class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="inOutSaved">
+					<li v-for="(list,index) in dataLists">
+						<p class="inOutSaved_headText">订单号:{{list.order_sn}}<span style="float: right">时间:{{list.add_time}}</span></p>
+						<div class="inOutSaved_item">
+							<img :src="list.goods_img" v-if="list.goods_img">
+							<img src="images/logo.png" v-else>
+							<div class="inOutSaved_item_text">
+								<p class="inOutSaved_item_text_head">{{list.goods_name}}</p>
+								<p class="inOutSaved_item_text_item">型号/规格：{{list.spec_name1}}/{{list.spec_name2}}</p>
+								<p class="inOutSaved_item_text_item"><span class="inOutSaved_item_text_item_in">库存：{{list.stock}} </span><span class="inOutSaved_item_text_item_unitprice">单价：{{list.price}}</span></p>
+							</div>
+						</div>
+						<p class="inOutSaved_bottomText">
+							<span>总价：<i>{{list.total_price}}</i></span>
+							<button type="button" class="mui-btn mui-btn-primary" @tap="confirmIn(list)" v-if="list.status==0">确认收货</button>
+						</p>
+					</li>
+				</ul>
 			</div>
-			</form>
-			<p>（最多上传一张）</p>
 		</div>
-        <ul class="withDlist inList">
-        	<li class="mui-table-view-cell">
-        		<span>商品名称</span>
-        		<input type="text" placeholder="请输入商品名称" v-model="goodName" />
-        	</li>
-        	<li class="mui-table-view-cell">
-        		<span>规      格</span>
-        		<input type="text" placeholder="请输入商品规格" v-model="goodSpec" />
-        	</li>
-        	<li class="mui-table-view-cell">
-        		<span>型      号</span>
-        		<input type="text" placeholder="请输入商品型号" v-model="goodType" />
-        	</li>
-        	<li class="mui-table-view-cell">
-        		<span>进 货 价</span>
-        		<input type="number" placeholder="请输入进货价" v-model="purPrice" />
-        	</li>
-        	<li class="mui-table-view-cell">
-        		<span>销 售 价</span>
-        		<ul>
-        			<li>
-        				<span>大客户</span>
-        				<input type="number" placeholder="请输入销售价" v-model="salePrice_b" />
-        			</li>
-        			<li>
-        				<span>中客户</span>
-        				<input type="number" placeholder="请输入销售价" v-model="salePrice_m" />
-        			</li>
-        			<li>
-        				<span>小客户</span>
-        				<input type="number" placeholder="请输入销售价" v-model="salePrice_s" />
-        			</li>
-        		</ul>
-        	</li>
-        	<li class="mui-table-view-cell">
-        		<span>数     量</span>
-        		<input type="number" placeholder="请输入商品数量" v-model="goodNum" />
-        	</li>
-        	<li class="mui-table-view-cell" @tap="selUnit">
-        		<span>单     位</span>
-        		<input type="text" placeholder="请选择商品单位" readonly v-model="unitName" />
-        	</li>
-        	<li class="mui-table-view-cell">
-        		<span>预 警 值</span>
-        		<input type="number" placeholder="请输入预警值" v-model="warnNum" />
-        	</li>
-        </ul>
 	</div>
-	</div>
-	<script src="publick/js/jquery-3.1.0.min.js"></script>
-	<script src="publick/js/vue.min.js"></script>
-    <script src="publick/js/mui.min.js"></script>
-    <script src="publick/js/mui.picker.min.js"></script>
-	<script src="publick/js/mui.poppicker.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/inbound.js?v=1.1"></script>
-    <script type="text/javascript" charset="utf-8">
-      	mui.init();
-    </script>
+</div>
+<script src="publick/js/jquery-3.1.0.min.js"></script>
+<script src="publick/js/vue.min.js"></script>
+<script src="publick/js/mui.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/inbound.js"></script>
+<script type="text/javascript">
+    mui.init();
+</script>
 </body>
+
 </html>

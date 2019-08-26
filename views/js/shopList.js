@@ -33,6 +33,3 @@ var vm=new Vue({
 		}
 	}
 });
-$('.back').click(function(){
-	location.href="cfmOrder.html";
-});

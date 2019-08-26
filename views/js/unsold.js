@@ -1,9 +1,9 @@
 var vm=new Vue({
 	el: '#vmObj',
 	data: {
-		selCont:1,
-		page:1,
-	    unsoldLists:[]
+        selCont:1,
+        page:1,
+        dataLists: []
 	},
 	created:function(){
 		var self=this;
@@ -29,7 +29,7 @@ var vm=new Vue({
 		//});
 	    window.addEventListener('refresh', function(e){//监听上一个页面fire返回
 	    	//location.reload();
-		    self.getList();
+		    // self.getList();
 	 	});
 	},
 	methods:{
@@ -37,25 +37,34 @@ var vm=new Vue({
 			var self=this;
 		    var param={'token':token,'page':self.page,'month':self.selCont};
 			postData('/api/inventorygoods/noSalelist',param,function(res){
-	        	if(res.code==200){
-	        		if(res.data.total==0){
-						mui.toast('暂无商品');
-					}else if(res.data.total<=self.unsoldLists.length){
-	            		setTimeout(function(){
-		        			mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-		        		},500);
-	            	}else{
-			        	self.unsoldLists=self.unsoldLists.concat(res.data.data);
-			        	self.page++;
-			            setTimeout(function(){
-		        			mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-		        		},500);
-		        	}
-		        }else{
-		        	mui.toast(res.message);
-		        } 
-		  	});
-		},
+                if(res.code==200){
+                    if(res.data.total==0){
+                        mui.toast('暂无商品');
+                        setTimeout(function(){
+                            mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+                        },500);
+                    } else if (self.page === 1) {
+                        self.dataLists = res.data.data
+                        self.page++;
+                        setTimeout(function(){
+                            mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+                        },500);
+                    } else if(res.data.total<=self.dataLists.length){
+                        setTimeout(function(){
+                            mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+                        },500);
+                    }else{
+                        self.dataLists=self.dataLists.concat(res.data.data);
+                        self.page++;
+                        setTimeout(function(){
+                            mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+                        },500);
+                    }
+                }else{
+                    mui.toast(res.message);
+                }
+            })
+        },
 		selType:function(){
 			var self=this;
 			self.page=1;
@@ -71,7 +80,6 @@ var vm=new Vue({
 	   		var self=this;
 	   		self.page=1;
 			setTimeout(function(){
-				self.unsoldLists=[];
 				self.getList();
                	mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
            	},1500);
